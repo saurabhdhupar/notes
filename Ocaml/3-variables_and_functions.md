@@ -128,3 +128,119 @@ val increments : (int -> int) list = [<fun>; <fun>]
 utop # List.map ~f:(fun g -> g 5) increments;;
 - : int list = [6; 7]
 ```
+使用let绑定，我们甚至可以像命名其它值一样命名函数：
+```ocaml
+utop # let jia_1 = (fun x -> x + 1);;
+val jia_1 : int -> int = <fun>
+
+utop # jia_1 2;;
+- : int = 3
+```
+下面定义函数是语法糖，是简写：
+```ocaml
+utop # let jia_1 x = x + 1;;
+val jia_1 : int -> int = <fun>
+```
+这是声明函数更常用也更方便的方法，不过抛开语法细节不说，这两种定义函数的方式是完全等价的。
+
+> let和fun
+>
+> 函数和let绑定有许多互通性。在某种意义上，你可以把函数参数看成是一个由调用者绑定了输入值的变量。实际上，下面两个表达式几乎是一样的：
+>
+> # (fun x -> x + 1) 7;;
+> - : int = 8
+> # let x = 7 in x + 1;;
+> - : int = 8
+> 这种联系很重要，这在单子(monadic)风格编程中更明显，详见第18章使用Async 并行编程。
+
+### 多参数函数
+```ocaml
+utop # let jueduizih a b = abs(a - b);;
+val jueduizih : int -> int -> int = <fun>
+```
+```ocaml
+utop # let juiduizhi = (fun x -> (fun y -> abs(x - y)));;
+val juiduizhi : int -> int -> int = <fun>
+```
+```ocaml
+utop # let jueduizih = (fun x y -> abs(x - y));;
+val jueduizih : int -> int -> int = <fun>
+```
+这种风格的函数称为 **柯里化（curried）** 函数。(`Currying`是以 `Haskell Curry` 命名的，一位对编程语言设计和理论都有重大影响的逻辑学家。)解释柯里化函数签名的关键是`->`是右结合的。
+柯里化也不仅仅是理论玩具。应用柯里化，你可以只提供一部分参数来特化一个函数。下面的例子中，我们创建了一个abs_diff的特化版本，来求给定的数到3的距离：
+
+```ocaml
+utop # let len_to_3 = jueduizih 3;;
+val len_to_3 : int -> int = <fun>
+```
+这种在柯里化函数上应用部分参数得到一个新函数的实践叫 偏特化应用（partial application）。
+在 OCaml 中，以完整参数调用一个柯里化的函数没有任何额外开销。（当然，偏特化函数会产生一点点额外的开销。）
+
+柯里化不是 OCaml 中写多参数函数的唯一方法。使用元组不同字段作为不同参数也是可以的。
+```ocaml
+utop # let jueduizih (x, y) = abs(x - y);;
+val jueduizih : int * int -> int = <fun>
+```
+
+OCaml处理这种调用约定也非常高效。特别是，通常都不必为了传递元组形式的参数而分配一个元组。当然，这时你就不能使用偏特化应用了。
+
+这两种方法差异很小，但是大多数时候你都应该使用柯里化形式，因为它是 OCaml 中默认的风格。
+
+### 递归函数
+定义中又调用了自己的函数就是递归的。递归在任何编程语言中都很重要，但对函数式语言尤为如此，因为递归是函数式语言实现循环结构的手段。（第8章命令式编程中我们会详细介绍，OCaml 也支持像for和while这样的命令式循环结构，但是它们只在使用 OCaml 的命令式编程特性时才有用。）
+
+要定义递归函数，你需要使用rec关键字将let绑定标记成递归的，下面是一个例子，是一个查找列表第一个重复元素序列的函数：
+```ocaml
+utop # let rec find_first_cf list =
+         match list with
+         | [] | [_] -> None
+         | x :: y :: tl -> if x=y then Some x else find_first_cf (y :: tl)
+       ;;
+val find_first_cf : 'a list -> 'a option = <fun>
+```
+模式`[] | [_]` 是一个 或模式，是两个模式的组合，只要任何一个模式匹配即可。这里`[]`匹配空列表，`[_]`匹配只有一个元素的列表
+
+使用let rec和and配合我们也能定义多个交互递归的值。下面是一个（天生低效的）例子：
+```ocaml
+utop # let rec
+         is_even x = if x = 0 then true else is_old(x - 1)
+         and is_old x = if x = 0 then false else is_even(x - 1)
+       ;;
+val is_even : int -> bool = <fun>
+val is_old : int -> bool = <fun>
+```
+```ocaml
+utop # List.map ~f:is_even [0;1;2;3;4;5];;
+- : bool list = [true; false; true; false; true; false]
+
+utop # List.map ~f:is_old [0;1;2;3;4;5];;
+- : bool list = [false; true; false; true; false; true]
+```
+
+OCaml 需要区分非递归定义（用let）和递归定义（用let rec）主要是技术原因：类型推导算法需要知道何时一组函数定义是交互递归的，并且出于一些像 Haskell 这样的纯函数式语言中没有原因，这需要程序员自己显式标注。
+
+> 到底是啥原因呢?:( Lisp 也不纯啊！ by clark。
+
+但这个决策也有一些好处。一个原因是，递归（特别是交互递归）定义比非递归更难推理。所以如果在没有显式rec的地方，你就可以认为这个let绑定一定只能是基于之前的绑定，这一点是有意义的。
+
+另外，有一个单独的非递归形式也使得通过遮蔽来创建一个新的定义以替代一个已存在的定义更为容易。
+
+### 前缀和中缀操作符
+前缀
+```ocaml
+utop # Int.max 3 4;;
+- : int = 4
+```
+中缀
+```ocaml
+utop # 3 + 4;;
+- : int = 7
+```
+如果给中缀操作符加上括号，就可以像普通前缀函数一样使用了：
+```ocaml
+utop # (+) 3 4;;
+- : int = 7
+
+utop # List.map ~f:((+) 3) [4;5;6];;
+- : int list = [7; 8; 9]
+```
