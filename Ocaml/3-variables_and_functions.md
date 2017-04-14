@@ -292,3 +292,161 @@ val ( *** ) : float -> float -> float = <fun>
 |`<-, :=` 	                                       |右结合|
 |`if` 	                                           | -     |
 |`;` 	                                           |右结合|
+
+有一个很重要的特殊情况：-和-.，整数和浮点数减法运算符，可以即当前缀操作符（负数）也当中缀操作符（减法），因此-x和x - y都是正确的表达式。
+还有一点要注意的就是负数操作的优先比函数调用低，就是说你需要括号来传递一个负数，如下所示:
+```ocaml
+utop # Int.max 3 (-4);;
+- : int = 3
+
+utop # Int.max 3 -4;;
+Error: This expression has type int -> int
+       but an expression was expected of type int
+```
+第二个会被解释为
+```ocaml
+utop # (Int.max 3) -4;;
+```
+
+
+下面的例子中是一个非常有用的操作符，来自标准库，其行为严格依赖上面提到的优先级规则：
+```ocaml
+utop # let (|>) x f  = f x;;
+val ( |> ) : 'a -> ('a -> 'b) -> 'b = <fun>
+```
+乍一看其作用并不明显：它只是接收一个值和一个函数，然后把函数应用到值上。尽管这个描述听起来平淡无奇，它却在顺序操作时扮演重要角色，这和 UNIX 管道神似。
+
+考虑下面的代码，可以无重复地打印出你PATH中的元素。
+下面的List.dedup通过使用给定的比较函数排序来从一个列表中消除重复：
+```ocaml
+utop # let path = "/Users/chyroc/.opam/system/bin:/Users/chyroc/.nvm/versions/node/v7.6.0/bin:/opt/local/bin:/Users/chyroc/Desktop/software/command:/Users/chyroc/.pyenv/shims:/Users/chyroc/.opam/system/bin:/opt/local/bin:/Users/chyroc/Desktop/software/command:/Users/chyroc/.pyenv/shims:/Users/chyroc/.opam/system/bin:/opt/local/bin:/Users/chyroc/Desktop/software/command:/Users/chyroc/.pyenv/shims:/Users/chyroc/.opam/system/bin:/opt/local/bin:/Users/chyroc/Desktop/software/command:/Users/chyroc/.pyenv/shims:/Users/chyroc/.rvm/gems/ruby-2.4.0/bin:/Users/chyroc/.rvm/gems/ruby-2.4.0@global/bin:/Users/chyroc/.rvm/rubies/ruby-2.4.0/bin:/Users/chyroc/.opam/system/bin:/opt/local/bin:/Users/chyroc/Desktop/software/command:/Users/chyroc/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS:/Users/chyroc/.local/bin:/Users/chyroc/.cabal/bin:/Applications/ghc-7.10.3.app/Contents/bin:/usr/local/bin/hadoop:/Users/chyroc/Desktop/software/lib/ngrok:/Users/chyroc/Desktop/software/lib/sqoop2/bin:/Users/chyroc/.yarn/bin";;
+
+utop # String.split ~on:':' path
+         |> List.dedup ~compare:String.compare
+           |> List.iter ~f:print_endline
+       ;;
+
+/Applications/Wireshark.app/Contents/MacOS
+/Applications/ghc-7.10.3.app/Contents/bin
+/Users/chyroc/.cabal/bin
+/Users/chyroc/.local/bin
+/Users/chyroc/.nvm/versions/node/v7.6.0/bin
+/Users/chyroc/.opam/system/bin
+/Users/chyroc/.pyenv/shims
+/Users/chyroc/.rvm/gems/ruby-2.4.0/bin
+/Users/chyroc/.rvm/gems/ruby-2.4.0@global/bin
+/Users/chyroc/.rvm/rubies/ruby-2.4.0/bin
+/Users/chyroc/.yarn/bin
+/Users/chyroc/Desktop/software/command
+/Users/chyroc/Desktop/software/lib/ngrok
+/Users/chyroc/Desktop/software/lib/sqoop2/bin
+/bin
+/opt/local/bin
+/sbin
+/usr/bin
+/usr/local/bin
+/usr/local/bin/hadoop
+/usr/sbin
+- : unit = ()
+```
+
+注意我们不用|>也能做到这一点，但是会有一些冗长：
+```ocaml
+utop # let split_path = String.split ~on:':' path in
+         let deduped_path = List.dedup ~compare:String.compare split_path in
+           List.iter ~f:print_endline deduped_path
+       ;;
+```
+
+这里有一个很重要的方面就是偏特化应用。如，List.iter正常会接收两个参数：一个是对列表的每一个元素都调用的函数，还有一个用以迭代的列表。我们可以用完整的参数调用List.iter：
+```ocaml
+utop # List.iter ~f:print_endline ["Two"; "lines"];;
+Two
+lines
+- : unit = ()
+```
+或者。我们可以只传给它函数参数，这样就会得到一个打印字符串列表的函数：
+```ocaml
+utop # List.iter ~f:print_endline;;
+- : string list -> unit = <fun>
+```
+后面这个形式就是我们在上面|>管道中使用的。
+
+注意|>能以预定的方式工作，因为它是左结合的。让我们看看如果使用右结合操作符会发生什么，比如(^>)：
+```ocaml
+utop # let (^>) x f = f x;;
+val ( ^> ) : 'a -> ('a -> 'b) -> 'b = <fun>
+```
+
+```ocaml
+utop # Sys.getenv_exn "PATH"
+         ^> String.split ~on:':' path
+           ^> List.dedup ~compare:String.compare
+             ^> List.iter ~f:print_endline
+       ;;
+Error: This expression has type string list -> unit
+but an expression was expected of type (string list -> string list) -> 'a
+Type string list is not compatible with type string list -> string list
+```
+上面的类型错误乍一看挺迷惑人的。
+事情是这样的，由于`^>`是右结合的，所以会试图把`List.dedup ~compare:String.compare`传给`List.iter ~f:print_endline`。
+但是`List.iter ~f:print_endline`需要一个字符串列表作为输入，而不是一个函数。
+
+除了类型错误，这个例子还强调了小心选择操作符的重要性，特别是结合性方面。
+
+
+### 使用function声明函数
+定义函数还有一个方法就是使用function关键字。和支持声明多参数（柯里化的）函数语法不同，function内建了模式匹配。例如：
+
+```ocaml
+utop # let some_or_zero = function
+         | Some x -> x
+         | None -> 0
+       ;;
+val some_or_zero : int option -> int = <fun>
+```
+
+```ocaml
+utop # let some_or_zero num_opt =
+         match num_opt with
+           | Some x -> x
+           | None -> 0
+       ;;
+val some_or_zero : int option -> int = <fun>
+```
+
+我们也可以把不同的函数声明风格组合在一起，下面的例子中，我们声明了一个有两个参数（柯里化）的函数，第二个参数使用模式匹配：
+```ocaml
+utop # let some_or_default default = function
+         | Some x -> x
+         | None -> default
+       ;;
+val some_or_default : 'a -> 'a option -> 'a = <fun>
+
+utop # some_or_default 3 (Some 5);;
+- : int = 5
+utop # List.map ~f:(some_or_default 100) [Some 3; None; Some 4];;
+- : int list = [3; 100; 4]
+```
+
+再一次注意使用偏特化创建了一个函数传给List.map这种用法。换句话说，some_or_default 100是通过只给some_or_default第一个参数来创建的函数。
+
+### 标签参数
+
+到目前为止，我们定义的函数都是通过位置，即，参数传给函数的顺序，来区分参数的。OCaml 也支持标签参数，允许你可以使用名称来标识参数。实际上，我们已经碰到过 Core 中一些使用标签参数的函数，如List.map。标签参数用一个波浪号前缀标注，并在需要标签的变量前使用一个标签（后面跟着一个分号）。下面是一个例子：
+
+```ocaml
+utop # let ratio ~num ~denom = float num /. float denom;;
+val ratio : num:int -> denom:int -> float = <fun>
+
+utop # ratio ~num:3 ~denom:10;;
+- : float = 0.3
+
+utop # ratio ~denom:10 ~num:3;;
+- : float = 0.3
+```
+OCaml 也支持 标签双关（label punning），如果标签和和变量名同名，那么你就可以不用:及后面的部分了。实际上，上面在定义ratio时我们已经使用了标签双关。下面展示了如何在函数调用中使用双关：
+
+```ocaml
+
+```
