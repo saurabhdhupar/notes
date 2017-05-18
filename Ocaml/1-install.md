@@ -12,6 +12,7 @@ brew install pcre
 ## opam
 ```
 brew install opam
+opam init
 
 opam install utop
 
