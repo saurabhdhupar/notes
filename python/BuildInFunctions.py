@@ -827,3 +827,73 @@ Out[17]: 'this is repr.'
 """
 
 # reversed(seq)
+# 返回一个逆序的iterator
+# seq必须是一个实现了 __reversed__() 的 object
+# 或者支持 sequence protocol ( the __len__() method and the __getitem__() method with integer arguments starting at 0 )
+
+
+# round(number[, ndigits])
+# 参考资料 https://docs.python.org/3.6/tutorial/floatingpoint.html#tut-fp-issues
+
+# class set([iterable])
+
+# setattr(object, name, value)
+"""
+In [22]: class A(object):
+    ...:     pass
+
+In [25]: setattr(A, 'a', '2')
+
+In [26]: A.a
+Out[26]: '2'
+"""
+
+# class slice(stop)
+# class slice(start, stop[, step])
+# See itertools.islice() for an alternate version that returns an iterator.
+
+# sorted(iterable[, key][, reverse])
+
+# staticmethod(function)
+"""
+In [28]: class A(object):
+    ...:     @staticmethod
+    ...:     def f():
+    ...:         print('A.f or A().f')
+
+In [29]: A.f()
+A.f or A().f
+
+In [30]: A().f()
+A.f or A().f
+"""
+
+# class str(object='')
+# class str(object=b'', encoding='utf-8', errors='strict')
+
+# sum(iterable[, start])
+
+# super([type[, object-or-type]])
+
+# tuple([iterable])
+# 一个 immutable sequence type ，不可变序列类型？
+
+# class type(object)
+# class type(name, bases, dict)
+# 一个参数，检测类型。isinstance() 推荐类测试 the type of an object
+# With three arguments, return a new type object. This is essentially a dynamic form of the class statement
+
+# vars([object])
+# return __dict__
+# Without an argument, vars() acts like locals(). Note, the locals dictionary is only useful for reads since updates to the locals dictionary are ignored.
+
+# zip(*iterables)
+"""
+In [40]: list(zip('ABCD', 'xy'))
+Out[40]: [('A', 'x'), ('B', 'y')]
+
+In [43]: list(itertools.zip_longest('ABCD', 'xy'))
+Out[43]: [('A', 'x'), ('B', 'y'), ('C', None), ('D', None)]
+"""
+
+# __import__(name, globals=None, locals=None, fromlist=(), level=0)
