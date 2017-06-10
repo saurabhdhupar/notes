@@ -13,6 +13,7 @@
 
 - [ ] brew cask install slack
 - [ ] brew install thefuck
+- [ ] brew install autojump ([GitHub](https://github.com/wting/autojump))
 - [ ] brew cask install virtualbox
 - [ ] brew cask install flux
 - [ ] brew cask install caffeine
