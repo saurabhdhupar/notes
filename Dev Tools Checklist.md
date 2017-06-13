@@ -43,6 +43,11 @@
 - [ ] pyenv install 3.6.1
 - [ ] update your `~/.zshrc` to include
 
+## Go
+
+- [ ] install golang from [this md](https://github.com/Chyroc/study-code/blob/master/Go/1-install.md)
+- [ ] brew install glide
+
 ## Ruby
 - [ ] install RVM from [its website](https://rvm.io/)
 - [ ] rvm install 2.4
