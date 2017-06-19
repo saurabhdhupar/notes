@@ -64,6 +64,7 @@
 - [ ] brew cask install postico
 - [ ] brew install mongodb
 - [ ] brew install redis
+- [ ] brew install mysql : [read this](https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e)
 - [ ] brew install sqlite
 - [ ] brew install postgresql
 
