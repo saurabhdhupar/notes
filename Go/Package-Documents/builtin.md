@@ -1,4 +1,5 @@
-i
+Package builtin provides documentation for Go's predeclared identifiers. The items documented here are not actually in package builtin but their descriptions here allow godoc to present documentation for the language's special identifiers
+
 ## Constants
 
 ```go
@@ -6,7 +7,7 @@ const (
     true  = 0 == 0 // Untyped bool.
     false = 0 != 0 // Untyped bool.
 
-    const iota = 0 // Untyped int.
+    iota = 0 // Untyped int.
 )
 ```
 
