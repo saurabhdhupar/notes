@@ -35,6 +35,10 @@
 - [ ] install nvm following its GitHub repo
 - [ ] install the latest node (at least version 6)
 
+## Chrome
+
+- [ ] use markdown to write mail: [http://markdown-here.com/](https://chrome.google.com/webstore/detail/markdown-here/elifhakcjgalahccnjkneoccemfahfoa)
+
 ## Python
 
 - [ ] install pyenv following [its GitHub repo](https://github.com/pyenv/pyenv)
