@@ -4,6 +4,9 @@
 
 - [ ] setup VPN and ShadowSocks
 - [ ] install brew
+- [ ] brew cask install iterm2
+- [ ] use solarized color scheme for your iterm
+- [ ] keep your own version of dotfiles
 - [ ] brew install zsh
 - [ ] search and install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [ ] edit and configure your `~/.zsh` from now on
@@ -11,22 +14,21 @@
 
 ### Tools and utilities
 
-- [ ] brew cask install slack
 - [ ] brew install thefuck
 - [ ] brew install autojump ([GitHub](https://github.com/wting/autojump))
-- [ ] brew cask install virtualbox
-- [ ] brew cask install flux
-- [ ] brew cask install caffeine
 - [ ] brew install xz
 - [ ] brew install vim --override-system-vi
-- [ ] brew install awscli
 - [ ] brew cask install spectacle
 - [ ] brew cask install docker
 - [ ] install atom from [its website](https://atom.io/)
 - [ ] brew cask install sublime-text
-- [ ] brew cask install iterm2
-- [ ] use solarized color scheme for your iterm
-- [ ] keep your own version of dotfiles
+- [ ] brew install jq
+
+- [ ] brew install awscli
+- [ ] brew cask install slack
+- [ ] brew cask install virtualbox
+- [ ] brew cask install flux
+- [ ] brew cask install caffeine
 
 ## Front-end
 
