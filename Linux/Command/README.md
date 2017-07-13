@@ -11,7 +11,7 @@
 - [ ] ln
 - [ ] [touch](./touch.md)
 - [ ] cd
-- [ ] cat
+- [ ] [cat](./cat.md)
 
 ## 系统
 - [ ] sudo
@@ -20,7 +20,7 @@
 - [ ] ps
 - [ ] which
 - [ ] vi
-- [ ] kill
+- [ ] [kill](./kill.md)
 
 ### 网络相关
 - [ ] wget
