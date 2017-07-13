@@ -15,7 +15,7 @@
 
 ## 系统
 - [ ] sudo
-- [ ] pwd
+- [ ] [pwd](./pwd.md)
 - [ ] history
 - [ ] ps
 - [ ] which
