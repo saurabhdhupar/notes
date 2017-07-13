@@ -9,7 +9,7 @@
 - [ ] cp
 - [ ] rm
 - [ ] ln
-- [ ] touch
+- [ ] [touch](./touch.md)
 - [ ] cd
 - [ ] cat
 
