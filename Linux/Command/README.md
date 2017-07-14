@@ -6,6 +6,7 @@
 ### 文件相关
 #### 查看
 - [ ] [cat](./cat.md)
+- [ ] [cut](./cut.md)
 - [ ] [tail](./tail.md)
 - [ ] [head](./head.md)
 
@@ -49,10 +50,9 @@
 - [ ] openssl
 
 ### 工具
+- [ ] [awk](./awk.md)
 - [ ] alias
 - [ ] [jq](./jq.md)
-
-### 魔法
 - [ ] |
 - [ ] $(...)
 - [ ] xargs
