@@ -1,17 +1,23 @@
 ## 常用linux命令
 把常用的搞懂了就很厉害吧（对我目前来说）
 
-## 列表
+## 命令
 
 ### 文件相关
+#### 查看
+- [ ] [cat](./cat.md)
+- [ ] [tail](./tail.md)
+- [ ] [head](./head.md)
+
+#### 其他
 - [ ] [ls](./ls.md)
 - [ ] mv
 - [ ] cp
-- [ ] rm
+- [ ] [rm, unlink](./rm-unlink.md)
 - [ ] ln
 - [ ] [touch](./touch.md)
 - [ ] cd
-- [ ] [cat](./cat.md)
+
 
 ## 系统
 - [ ] sudo

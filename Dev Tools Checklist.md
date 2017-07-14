@@ -24,6 +24,7 @@
 - [ ] brew cask install sublime-text
 - [ ] brew install jq
 
+
 - [ ] brew install awscli
 - [ ] brew cask install slack
 - [ ] brew cask install virtualbox
