@@ -12,6 +12,12 @@
 - [ ] edit and configure your `~/.zsh` from now on
 - [ ] make sure `/usr/local/bin` appears as the first item in `$PATH`
 
+## Sync Config
+
+- [ ] install Dropbox and login
+- [ ] config zsh link: [by the gist](https://gist.github.com/Chyroc/488790ca4eb0b9a1a31cfc70c75b849b)
+- [ ] set alfred: advanced -> syncing -> set sync folder: ~/Dropbox/ConfigSync/Alfred
+
 ### Tools and utilities
 
 - [ ] brew install thefuck
