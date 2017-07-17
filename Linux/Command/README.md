@@ -15,7 +15,7 @@
 - [ ] mv
 - [ ] cp
 - [ ] [rm, unlink](./rm-unlink.md)
-- [ ] ln
+- [ ] [ln, link](./ln-link.md)
 - [ ] [touch](./touch.md)
 - [ ] cd
 
