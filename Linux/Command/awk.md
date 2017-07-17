@@ -15,7 +15,7 @@
 
               pattern { action }
 
-       如果没有 `{ action }` 就是说打印整行，如果 `pattern`少了，总是会匹配到，模式语法 通过换行符 或者 分号 分割
+       如果没有 `{ action }` 就是说打印整行，如果 `pattern`少了，总是会匹配到，模式语法 通过换行符 或者 分号 分割.注意用的时候两边加引号 'pattern { action }'
 
        `action`是一系列 statement，可以是下面之一:
 
@@ -52,21 +52,19 @@
        int    转为整数
 
        substr(s, m, n)
-              the n-character substring of s that begins at position m counted from 1.
+              截取 s 的子串
 
        index(s, t)
-              the position in s where the string t occurs, or 0 if it does not.
+              t 在 s 中出现的位置，如果没有就是 0
 
        match(s, r)
-              the  position  in  s  where  the  regular expression r occurs, or 0 if it does not.  The variables RSTART and RLENGTH are set to the position and length of the matched
-              string.
+              正则表达式 r 在 s 中的位置，如果没有则为 0。 变量`RSTART`和`RLENGTH`被设置为匹配字符串的位置和长度。
 
        split(s, a, fs)
-              splits the string s into array elements a[1], a[2], ..., a[n], and returns n.  The separation is done with the regular expression fs or with the field separator FS  if
-              fs is not given.  An empty string as field separator splits the string into one array element per character.
+              将字符串 s 分解为数组元素 a[1]，a[2]，...，a[n]，并返回 n。 如果没有给出fs，则使用正则表达式fs或字段分隔符FS进行分离。 作为 字段分隔符的 空字符串 将字符串分割为 每个字符一个数组元素。
 
        sub(r, t, s)
-              substitutes t for the first occurrence of the regular expression r in the string s.  If s is not given, $0 is used.
+              用 t 代替字符串 s 中正则表达式 r 的第一次出现。 如果 s 没有给出，则使用 $0。
 
        gsub   same as sub except that all occurrences of the regular expression are replaced; sub and gsub return the number of replacements.
 
@@ -82,75 +80,73 @@
        toupper(str)
               returns a copy of str with all lower-case characters translated to their corresponding upper-case equivalents.
 
-       The ``function'' getline sets $0 to the next input record from the current input file; getline <file sets $0 to the next record from file.  getline x sets variable x instead.
-       Finally, cmd | getline pipes the output of cmd into getline; each call of getline returns the next line of output from cmd.  In all cases, getline returns 1 for a  successful
-       input, 0 for end of file, and -1 for an error.
+       function `getline` 将 $0 从当前输入文件设置为下一个输入记录; `getline <file` 将 $0设置为文件中的下一条记录。 `getline x`设置变量x。最后，`cmd | getline`将cmd的输出管道转换为getline; getline的每个调用返回cmd的下一行输出。 在所有情况下，getline返回 1:成功，0:文件结尾，-1:错误。
 
-       Patterns  are  arbitrary Boolean combinations (with ! || &&) of regular expressions and relational expressions.  Regular expressions are as defined in re_format(7).  Isolated
-       regular expressions in a pattern apply to the entire line.  Regular expressions may also occur in relational expressions, using the operators ~ and !~.  /re/  is  a  constant
-       regular expression; any string (constant or variable) may be used as a regular expression, except in the position of an isolated regular expression in a pattern.
+       模式(Patterns) 是 正则表达式(regular expressions) 和 关系表达式(relational expressions) 的任意布尔组合（`！` `||` `&&`）。 正则表达式在 re_format 中定义(参见 `man re_format`)。 模式中的隔离正则表达式适用于整行。 正则表达式也可能发生在关系表达式中，使用运算符`~`和`!~`。 `/re/`是一个常量正则表达式; 任何字符串（常量或变量）可以用作正则表达式，除了模式中的隔离正则表达式的位置。
 
-       A  pattern  may consist of two patterns separated by a comma; in this case, the action is performed for all lines from an occurrence of the first pattern though an occurrence
-       of the second.
+       模式(A pattern) 可以由逗号(comma) 分隔的 两个模式(two patterns) 组成; 在这种情况下，从第一图案的出现而对所有行执行动作，但是出现第二图案。(the action is performed for all lines from an occurrence of the first pattern though an occurrence of the second.)
 
-       A relational expression is one of the following:
+       关系表达式(relational expressions) 是下面的之一:
 
               expression matchop regular-expression
               expression relop expression
               expression in array-name
               (expr,expr,...) in array-name
 
-       where a relop is any of the six relational operators in C, and a matchop is either ~ (matches) or !~ (does not match).  A conditional is an  arithmetic  expression,  a  rela-
-       tional expression, or a Boolean combination of these.
+       其中 relop 是C中的六个关系运算符中（`+ - * / % ^`）的任何一个，matchop是 `~`（匹配 matches）或 `!~`（不匹配）。 条件(conditional) 是算术表达式(arithmetic  expression)，关系表达式(relational expressions) 或这些 的布尔组合。
 
-       The special patterns BEGIN and END may be used to capture control before the first input line is read and after the last.  BEGIN and END do not combine with other patterns.
 
-       Variable names with special meanings:
+       特殊模式 `BEGIN` 和 `END` 可用于在 第一条输入行读取之前 和 之后 捕获控制。 `BEGIN`和`END`不结合其他模式。
+
+       有特殊意义的变量名:
 
        CONVFMT
-              conversion format used when converting numbers (default %.6g)
+              转换数字时使用的转换格式（默认`％.6g`）
 
-       FS     regular expression used to separate fields; also settable by option -Ffs.
+       FS     正则表达式用于分隔字段; 也可以通过选项 -Ffs 进行设置.
 
-       NF     number of fields in the current record
+       NF     当前记录中的字段数
 
-       NR     ordinal number of the current record
+       NR     当前记录的序数
 
-       FNR    ordinal number of the current record in the current file
+       FNR    当前文件中当前记录的序数
 
        FILENAME
-              the name of the current input file
+              当前输入文件的名称
 
-       RS     input record separator (default newline)
+       RS     输入记录分隔符（默认换行符）
 
-       OFS    output field separator (default blank)
+       OFS    输出字段分隔符（默认为空）
 
-       ORS    output record separator (default newline)
+       ORS    输出记录分隔符（默认换行符）
 
-       OFMT   output format for numbers (default %.6g)
+       OFMT   数字输出格式（默认`％.6g`）
 
-       SUBSEP separates multiple subscripts (default 034)
+       SUBSEP 分离多个下标（默认为034）
 
        ARGC   argument count, assignable
 
-       ARGV   argument array, assignable; non-null members are taken as filenames
+       ARGV   参数数组，可分配; 非空成员将被视为文件名
 
        ENVIRON
-              array of environment variables; subscripts are names.
+              数组环境变量; 下标是名称.
 
-       Functions may be defined (at the position of a pattern-action statement) thus:
+       Functions 可以定义（在模式动作语句的位置）为：
 
               function foo(a, b, c) { ...; return x }
 
-       Parameters  are  passed by value if scalar and by reference if array name; functions may be called recursively.  Parameters are local to the function; all other variables are
-       global.  Thus local variables may be created by providing excess parameters in the function definition.
+       参数通过值传递，如果是标量，并通过引用传递数组名称; 函数可以递归调用。 参数是函数本地的; 所有其他变量都是全局变量。 因此，可以通过在函数定义中提供过多的参数来创建局部变量。
+
+       Parameters  are  passed by value if scalar and by reference if array name; functions may be called recursively.  Parameters are local to the function; all other variables are global.  Thus local variables may be created by providing excess parameters in the function definition.
 
 # EXAMPLES
        length($0) > 72
               Print lines longer than 72 characters.
+              > awk -F '\n'  'length($0) > 100' filename （自己加的）
 
        { print $2, $1 }
               Print first two fields in opposite order.
+              > awk -F ' ' 'length($0) > 100 { print $4}'  Dev\ Tools\ Checklist.md
 
        BEGIN { FS = ",[ \t]*|[ \t]+" }
              { print $2, $1 }
