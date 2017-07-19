@@ -25,7 +25,7 @@
 - [ ] [pwd](./pwd.md)
 - [ ] history
 - [ ] ps
-- [ ] which
+- [ ] [which](./which.md)
 - [ ] vi
 - [ ] [kill](./kill.md)
 
