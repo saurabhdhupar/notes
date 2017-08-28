@@ -1,22 +1,17 @@
 # 学习笔记
 
-## [开发工具列表](./Dev Tools Checklist.md)
+- [开发工具列表](./Dev Tools Checklist.md)
 
-## [算法](./Algorithms)
+- 算法
 
-## [GO](./GO)
+- 编程语言
 
-- 文章
+ - [GO](./Language/GO)
 
- - [install](./1-install.md)
- - [how to write go code]
- - [the go ]
+ - [Ocaml](./Language/Ocaml)
 
+ - [python](./Language/python)
 
-## [Linux](./Linux)
+- [Linux](./Linux)
 
-- [命令](./command)
-
-## [Ocaml](./Ocaml)
-
-## [python](./python)
+ - [命令](./command)
