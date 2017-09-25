@@ -51,6 +51,7 @@
 ## Python
 
 - [ ] install pyenv following [its GitHub repo](https://github.com/pyenv/pyenv)
+- [ ] install pyenv-virtualenv following [its GitHub repo](https://github.com/pyenv/pyenv-virtualenv)
 - [ ] pyenv install 2.7.13
 - [ ] pyenv install 3.5.3
 - [ ] pyenv install 3.6.1
