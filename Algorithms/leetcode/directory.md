@@ -9,3 +9,8 @@ leetcode
 | 9 | [palindrome-number](./9-palindrome-number.md) | ️️:zap: |
 | 14 | [longest-common-prefix](./14-longest-common-prefix.md) | ️️:zap: |
 | 20 | [valid-parentheses](./20-valid-parentheses.md) | ️️:zap: |
+| 21 | [merge-two-sorted-lists](./21-merge-two-sorted-lists.md) | ️️:zap: |
+| 26 | [remove-duplicates-from-sorted-array](./26-remove-duplicates-from-sorted-array.md) | ️️:zap: |
+| 27 | [remove-element](./27-remove-element.md) | ️️:zap: |
+| 28 | [implement-strstr](./28-implement-strstr.md) | ️️:zap: |
+| 35 | [search-insert-position](./35-search-insert-position.md) | ️️:zap: |
