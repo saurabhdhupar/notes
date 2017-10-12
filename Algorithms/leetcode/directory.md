@@ -14,3 +14,7 @@ leetcode
 | 27 | [remove-element](./27-remove-element.md) | ️️:zap: |
 | 28 | [implement-strstr](./28-implement-strstr.md) | ️️:zap: |
 | 35 | [search-insert-position](./35-search-insert-position.md) | ️️:zap: |
+| 38 | [count-and-say](./38-count-and-say.md) | ️️:zap: |
+| 58 | [length-of-last-word](./58-length-of-last-word.md) | ️️:zap: |
+| 66 | [plus-one](./66-plus-one.md) | ️️:zap: |
+| 67 | [add-binary](./67-add-binary.md) | ️️:zap: |
