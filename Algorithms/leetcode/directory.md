@@ -18,3 +18,8 @@ leetcode
 | 58 | [length-of-last-word](./58-length-of-last-word.md) | ️️:zap: |
 | 66 | [plus-one](./66-plus-one.md) | ️️:zap: |
 | 67 | [add-binary](./67-add-binary.md) | ️️:zap: |
+| 70 | [climbing-stairs](./70-climbing-stairs.md) | ️️:zap: |
+| 88 | [merge-sorted-array](./88-merge-sorted-array.md) | ️️:zap: |
+| 100 | [same-tree](./100-same-tree.md) | ️️:zap: |
+| 101 | [symmetric-tree](./101-symmetric-tree.md) | ️️:zap: |
+| 104 | [maximum-depth-of-binary-tree](./104-maximum-depth-of-binary-tree.md) | ️️:zap: |
