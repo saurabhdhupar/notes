@@ -23,7 +23,6 @@ leetcode
 | 100 | [same-tree](./100-same-tree.md) | ️️:zap: |
 | 101 | [symmetric-tree](./101-symmetric-tree.md) | ️️:zap: |
 | 104 | [maximum-depth-of-binary-tree](./104-maximum-depth-of-binary-tree.md) | ️️:zap: |
-
 | 108 | [convert-sorted-array-to-binary-search-tree](./108-convert-sorted-array-to-binary-search-tree.md) | ️️:zap: |
 | 110 | [balanced-binary-tree](./110-balanced-binary-tree.md) | ️️:zap: |
 | 112 | [path-sum](./112-path-sum.md) | ️️:zap: |
