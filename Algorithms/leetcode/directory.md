@@ -30,18 +30,27 @@ leetcode
 | 119 | [pascals-triangle-ii](./119-pascals-triangle-ii.md) | ️️:zap: |
 | 122 | [best-time-to-buy-and-sell-stock-ii](./122-best-time-to-buy-and-sell-stock-ii.md) | ️️:zap: |
 | 125 | [valid-palindrome](./125-valid-palindrome.md) | ️️:zap: |
-| 175 | [combine-two-tables](./175-combine-two-tables.md) | ️️:zap: |
-| 595 | [big-countries](./595-big-countries.md) | ️️:zap: |
 | 461 | [hamming-distance](./461-hamming-distance.md) | ️️:zap: |
 | 657 | [judge-route-circle](./657-judge-route-circle.md) | ️️:zap: |
 | 617 | [merge-two-binary-trees](./617-merge-two-binary-trees.md) | ️️:zap: |
 | 561 | [array-partition-i](./561-array-partition-i.md) | ️️:zap: |
-| 627 | [swap-salary](./627-swap-salary.md) | ️️:zap: |
 | 500 | [keyboard-row](./500-keyboard-row.md) | ️️:zap: |
+| 557 | [reverse-words-in-a-string-iii](./557-reverse-words-in-a-string-iii.md) | ️️:zap: |
+| 344 | [reverse-string](./344-reverse-string.md) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
+
+
+sql
+
+| # | Title | Difficulty |
+|:---:|:---:|:---:|
+| 175 | [combine-two-tables](./175-combine-two-tables.md) | ️️:zap: |
+| 595 | [big-countries](./595-big-countries.md) | ️️:zap: |
+| 620 | [not-boring-movies](./620-not-boring-movies.md) | ️️:zap: |
+| 627 | [swap-salary](./627-swap-salary.md) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
