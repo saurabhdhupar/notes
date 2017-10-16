@@ -1,6 +1,7 @@
 # 学习笔记
 
-- [开发工具列表](./Dev\ Tools\ Checklist.md)
+- [开发工具列表](./Dev-Tools-Checklist.md)
+- [有用网站集](./awesome-website.md)
 
 - 算法
 
