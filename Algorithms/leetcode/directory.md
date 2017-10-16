@@ -37,6 +37,11 @@ leetcode
 | 500 | [keyboard-row](./500-keyboard-row.md) | ️️:zap: |
 | 557 | [reverse-words-in-a-string-iii](./557-reverse-words-in-a-string-iii.md) | ️️:zap: |
 | 344 | [reverse-string](./344-reverse-string.md) | ️️:zap: |
+| 412 | [fizz-buzz](./412-fizz-buzz.md) | ️️:zap: |
+| 566 | [reshape-the-matrix](./566-reshape-the-matrix.md) | ️️:zap: |
+| 669 | [trim-a-binary-search-tree](./669-trim-a-binary-search-tree.md) | ️️:zap: |
+| 463 | [island-perimeter](./463-island-perimeter.md) | ️️:zap: |
+| 496 | [next-greater-element-i](./496-next-greater-element-i.md) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |

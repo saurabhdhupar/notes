@@ -7,25 +7,22 @@
      cat [-benstuv] [file ...]
 
 # DESCRIPTION
-     cat 从文件中读数据，然后输出到 standard output
-     The file operands are processed in command-line order
-     如果没有文件名 或者 是一个 `-`，那么就会从 standard input 读取。
-     如果文件是 `UNIX domain socket`，那么连上他，然后知道 EOF 之前读取。
-     This complements the UNIX domain binding capabil-ity available in inetd(8).
+     cat 从文件中读数据，然后输出到 `standard output`。The file operands are processed in command-line order。如果没有文件名或者是一个 `-`，那么就会从 `standard input` 读取。
+     如果文件是 `UNIX domain socket`，那么连上他，然后直到 `EOF` 之前读取。This complements the UNIX domain binding capabil-ity available in inetd(8).
 
      可选参数:
 
-     -b      输出 **非空行** 的行号，从1开始
+     -b      输出 非空行 的行号，从1开始
 
-     -e      显示非打印字符 non-printing characters (see the -v option),在每一行的最后显示一个 `$`.
+     -e      显示非打印字符（`non-printing characters`）(see the -v option)，并且在每一行的最后显示一个 `$`
 
      -n      和 `-b`一样，不过这个显示所有行的行号
 
-     -s      把连续的多个空行 替换为 一个空行.
+     -s      把连续的多个空行 替换为 一个空行
 
-     -t      显示非打印字符 non-printing characters (see the -v option), 将 tab 显示为 `^I`.
+     -t      显示非打印字符 (see the -v option), 将 tab 显示为 `^I`
 
-     -u      禁用输出缓冲 output buffering.
+     -u      禁用输出缓冲（`output buffering`）
 
      -v      Display non-printing characters so they are visible.  Control characters print as `^X` for control-X; the delete character (octal 0177) prints as `^?` .  Non-ASCII
              characters (with the high bit set) are printed as `M-` (for meta) followed by the character for the low 7 bits.

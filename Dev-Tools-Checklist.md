@@ -11,6 +11,7 @@
 - [ ] search and install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [ ] edit and configure your `~/.zsh` from now on
 - [ ] make sure `/usr/local/bin` appears as the first item in `$PATH`
+- [ ] [Chrome](https://www.google.com/chrome/browser/desktop/index.html) and login && async
 
 ## Sync Config
 
@@ -18,19 +19,23 @@
 - [ ] config zsh link: [by the gist](https://gist.github.com/Chyroc/488790ca4eb0b9a1a31cfc70c75b849b)
 - [ ] set alfred: advanced -> syncing -> set sync folder: ~/Dropbox/ConfigSync/Alfred
 
+### Editor
+
+- [ ] brew cask install sublime-text
+- [ ] install vscode from [its website](https://code.visualstudio.com/docs/setup/mac)
+- [ ] Pycharm
+- [ ] Gogland
+- [ ] Webstorm
+
 ### Tools and utilities
 
-- [ ] brew install thefuck
 - [ ] brew install autojump ([GitHub](https://github.com/wting/autojump))
 - [ ] brew install xz
 - [ ] brew install vim --override-system-vi
 - [ ] brew cask install spectacle
 - [ ] brew cask install docker
-- [ ] install atom from [its website](https://atom.io/)
-- [ ] brew cask install sublime-text
 - [ ] brew install jq
-
-
+- [ ] brew install mycli
 - [ ] brew install awscli
 - [ ] brew cask install slack
 - [ ] brew cask install virtualbox
@@ -43,10 +48,6 @@
 - [ ] brew install httpie
 - [ ] install nvm following its GitHub repo
 - [ ] install the latest node (at least version 6)
-
-## Chrome
-
-- [ ] use markdown to write mail: [http://markdown-here.com/](https://chrome.google.com/webstore/detail/markdown-here/elifhakcjgalahccnjkneoccemfahfoa)
 
 ## Python
 
