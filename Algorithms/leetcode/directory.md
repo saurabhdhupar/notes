@@ -42,10 +42,10 @@ leetcode
 | 669 | [trim-a-binary-search-tree](./669-trim-a-binary-search-tree.md) | ️️:zap: |
 | 463 | [island-perimeter](./463-island-perimeter.md) | ️️:zap: |
 | 496 | [next-greater-element-i](./496-next-greater-element-i.md) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-|  | [](./) | ️️:zap: |
+| 226 | [invert-binary-tree](./226-invert-binary-tree.md) | ️️:zap: |
+| 292 | [nim-game](./292-nim-game.md) | ️️:zap: |
+| 485 | [max-consecutive-ones](./485-max-consecutive-ones.md) | ️️:zap: |
+| 693 | [binary-number-with-alternating-bits](./693-binary-number-with-alternating-bits.md) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 
 
