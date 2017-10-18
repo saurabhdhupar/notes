@@ -46,6 +46,16 @@ leetcode
 | 292 | [nim-game](./292-nim-game.md) | ️️:zap: |
 | 485 | [max-consecutive-ones](./485-max-consecutive-ones.md) | ️️:zap: |
 | 693 | [binary-number-with-alternating-bits](./693-binary-number-with-alternating-bits.md) | ️️:zap: |
+| 136 | [single-number](./136-single-number.md) | ️️:zap: |
+| 258 | [add-digits](./258-add-digits.md) | ️️:zap: |
+| 371 | [sum-of-two-integers](./371-sum-of-two-integers.md) | ️️:zap: |
+| 448 | [find-all-numbers-disappeared-in-an-array](./448-find-all-numbers-disappeared-in-an-array.md) | ️️:zap: |
+| 520 | [detect-capital](./520-detect-capital.md) | ️️:zap: |
+| 389 | [find-the-difference](./389-find-the-difference.md) | ️️:zap: |
+|  | [](./) | ️️:zap: |
+|  | [](./) | ️️:zap: |
+|  | [](./) | ️️:zap: |
+|  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 
 
