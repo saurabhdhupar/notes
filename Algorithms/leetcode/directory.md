@@ -52,8 +52,8 @@ leetcode
 | 448 | [find-all-numbers-disappeared-in-an-array](./448-find-all-numbers-disappeared-in-an-array.md) | ️️:zap: |
 | 520 | [detect-capital](./520-detect-capital.md) | ️️:zap: |
 | 389 | [find-the-difference](./389-find-the-difference.md) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-|  | [](./) | ️️:zap: |
+| 268 | [missing-number](./268-missing-number.md) | ️️:zap: |
+| 504 | [base-7](./504-base-7.md) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 |  | [](./) | ️️:zap: |
