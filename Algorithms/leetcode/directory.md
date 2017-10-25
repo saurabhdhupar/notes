@@ -54,8 +54,12 @@ leetcode
 | 389 | [find-the-difference](./389-find-the-difference.md) | ️️:zap: |
 | 268 | [missing-number](./268-missing-number.md) | ️️:zap: |
 | 504 | [base-7](./504-base-7.md) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-|  | [](./) | ️️:zap: |
+| 242 | [valid-anagram](./242-valid-anagram.md) | ️️:zap: |
+| 283 | [move-zeroes](./283-move-zeroes.md) | ️️:zap: |
+| 350 | [intersection-of-two-arrays-ii](./350-intersection-of-two-arrays-ii.md) | ️️:zap: |
+| 541 | [reverse-string-ii](./541-reverse-string-ii.md) | ️️:zap: |
+| 551 | [student-attendance-record-i](./551-student-attendance-record-i.md) | ️️:zap: |
+| 674 | [longest-continuous-increasing-subsequence](./674-longest-continuous-increasing-subsequence.md) | ️️:zap: |
 |  | [](./) | ️️:zap: |
 
 
