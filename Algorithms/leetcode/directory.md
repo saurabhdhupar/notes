@@ -60,8 +60,11 @@ leetcode
 | 541 | [reverse-string-ii](./541-reverse-string-ii.md) | ️️:zap: |
 | 551 | [student-attendance-record-i](./551-student-attendance-record-i.md) | ️️:zap: |
 | 674 | [longest-continuous-increasing-subsequence](./674-longest-continuous-increasing-subsequence.md) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-
+| 198 | [house-robber](./198-house-robber.md) | ️️:zap: |
+| 206 | [reverse-linked-list](./206-reverse-linked-list.md) | ️️:zap: |
+| 217 | [contains-duplicate](./217-contains-duplicate.md) | ️️:zap: |
+| 599 | [minimum-index-sum-of-two-lists](./599-minimum-index-sum-of-two-lists.md) | ️️:zap: |
+| 665 | [non-decreasing-array](./665-non-decreasing-array.md) | ️️:zap: |
 
 sql
 
@@ -71,5 +74,3 @@ sql
 | 595 | [big-countries](./595-big-countries.md) | ️️:zap: |
 | 620 | [not-boring-movies](./620-not-boring-movies.md) | ️️:zap: |
 | 627 | [swap-salary](./627-swap-salary.md) | ️️:zap: |
-|  | [](./) | ️️:zap: |
-|  | [](./) | ️️:zap: |
