@@ -21,6 +21,6 @@
 
   - [python](./Language/python)
 
-- todo
+- 数据库
 
-  - [ ] 数据库
+  - [sql 入门](./Database/w3schools_sql_tutorial.md)

@@ -9,3 +9,14 @@ package.json
 .vscode/
 1.py
 1.js
+.sync/*
+
+.me_configs.data
+
+.z_sync_configs.data
+
+sync_changes.log
+
+sync_hook.script
+
+**/.Archive
