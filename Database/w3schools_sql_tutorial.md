@@ -354,6 +354,273 @@ SELECT column_name AS alias_name FROM table_name;
 
 # Alias Table Syntax
 SELECT column_name(s) FROM table_name *AS *alias_name;
-
 ```
 
+```sql
+# example
+SELECT CustomerName AS Customer, ContactName AS `Contact Person` FROM Customers;
+
+SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address FROM Customers;
+
+# to make the SQL shorter
+SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
+```
+
+使用别名的好处
+
+- 在一次query中有超过一个table
+- 在query中使用了function
+- 列名太长或不可读
+- 多列拼接起来了
+
+
+
+## SQL Joins
+
+sql join 是通过向关联的列将多个table的rows拼起来
+
+Orders
+
+| OrderID | CustomerID | OrderDate  |
+| :-----: | :--------: | :--------: |
+|  10308  |     2      | 1996-09-18 |
+|  10309  |     37     | 1996-09-19 |
+|  10310  |     77     | 1996-09-20 |
+
+Customers
+| CustomerID |            CustomerName            |  ContactName   | Country |
+| :--------: | :--------------------------------: | :------------: | :-----: |
+|     1      |        Alfreds Futterkiste         |  Maria Anders  | Germany |
+|     2      | Ana Trujillo Emparedados y helados |  Ana Trujillo  | Mexico  |
+|     3      |      Antonio Moreno Taquería       | Antonio Moreno | Mexico  |
+
+```sql
+# 上面两个表通过CustomerID关联起来了
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+```
+
+几个join的区别
+
+- **(INNER) JOIN** : Returns records that have matching values in both tables
+- **LEFT (OUTER) JOIN** : Return all records from the left table, and the matched records from the right table
+- **RIGHT (OUTER) JOIN** : Return all records from the right table, and the matched records from the left table
+- **FULL (OUTER) JOIN** : Return all records when there is a match in either left or right table
+
+- inner join
+![img_innerjoin](./img/img_innerjoin.gif)
+
+```sql
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2 ON table1.column_name = table2.column_name;
+
+# example
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+# join three tables
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+```
+
+- left join
+![img_leftjoin](./img/img_leftjoin.gif)
+
+看图，好像和直接查左边的表没什么区别。
+
+但是实际query的结果里面，是含有第二个表的数据的
+
+```sql
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2 ON table1.column_name = table2.column_name;
+
+# example
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+
+- right join
+![img_rightjoin](./img/img_rightjoin.gif)
+
+```sql
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+
+# example
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+```
+
+- full join
+![img_fulljoin](./img/img_fulljoin.gif)
+
+```sql
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2 ON table1.column_name = table2.column_name;
+
+# example
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+
+- SQL Self JOIN
+
+```sql
+SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;
+
+# example
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;
+```
+
+## The SQL UNION Operator
+
+union语法用于将多个query的result-set拼起来
+- 每一个select必须有一样数目的列
+- 对应的列需要有一样的数据类型
+- 每个select需要有一样的order
+
+```sql
+# UNION Syntax
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+
+# UNION ALL Syntax
+# UNION只会返回唯一的数据，为了使得所有数据都返回，需要使用 all
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+
+# 返回的列名等于第一个select的列名
+```
+
+```sql
+#SQL UNION Example
+SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;
+
+# SQL UNION ALL Example
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
+
+# SQL UNION With WHERE
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+
+# SQL UNION ALL With WHERE
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION ALL
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+
+# Another UNION Example
+SELECT 'Customer' As Type, ContactName, City, Country
+FROM Customers
+UNION
+SELECT 'Supplier', ContactName, City, Country
+FROM Suppliers;
+```
+
+## SQL GROUP BY Statement
+
+group 是为了聚合一些数据后使用`functions (COUNT, MAX, MIN, SUM, AVG)`
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+```
+
+```sql
+# example
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+
+# GROUP BY With JOIN Example
+SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName;
+```
+
+## SQL HAVING Clause
+
+添加`having`是因为`where`中不能使用函数，需要在`having`后使用
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+
+```sql
+# Only include countries with more than 5 customers
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+
+# sorted high to low (Only include countries with more than 5 customers)
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5
+ORDER BY COUNT(CustomerID) DESC;
+
+# have registered more than 10 orders
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM (Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID)
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 10;
+
+# if the employees "Davolio" or "Fuller" have registered more than 25 orders
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE LastName = 'Davolio' OR LastName = 'Fuller'
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 25;
+```
