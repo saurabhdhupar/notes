@@ -9,6 +9,9 @@
 - [ ] [cut](./cut.md)
 - [ ] [tail](./tail.md)
 - [ ] [head](./head.md)
+- [ ] sort
+- [ ] uniq
+- [ ] cut
 
 #### 其他
 - [ ] [ls](./ls.md)
@@ -18,7 +21,6 @@
 - [ ] [ln, link](./ln-link.md)
 - [ ] [touch](./touch.md)
 - [ ] cd
-
 
 ## 系统
 - [ ] sudo
@@ -57,3 +59,10 @@
 - [ ] |
 - [ ] $(...)
 - [ ] xargs
+- [ ] sed
+- [ ] grep
+
+### 自我学习
+- [ ] man
+- [ ] help
+- [ ] info
