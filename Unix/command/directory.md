@@ -9,6 +9,9 @@
 - [ ] [cut](./cut.md)
 - [ ] [tail](./tail.md)
 - [ ] [head](./head.md)
+- [ ] sort
+- [ ] uniq
+- [ ] cut
 
 #### 其他
 - [ ] [ls](./ls.md)
@@ -19,7 +22,6 @@
 - [ ] [touch](./touch.md)
 - [ ] cd
 
-
 ## 系统
 - [ ] sudo
 - [ ] [pwd](./pwd.md)
@@ -28,6 +30,7 @@
 - [ ] [which](./which.md)
 - [ ] vi
 - [ ] [kill](./kill.md)
+- [ ] [&](./&.md)
 
 ### 网络相关
 - [ ] wget
@@ -56,3 +59,10 @@
 - [ ] |
 - [ ] $(...)
 - [ ] xargs
+- [ ] sed
+- [ ] grep
+
+### 自我学习
+- [ ] man
+- [ ] help
+- [ ] info
