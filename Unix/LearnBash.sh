@@ -63,11 +63,15 @@ echo {a..z} # => a b c d e f g h i j k l m n o p q r s t u v w x y z
 # This will output the range from the start value to the end value
 
 # 内置变量:
-echo "Last program's return value: $?"
-echo "Script's PID: $$"
-echo "Number of arguments passed to script: $#"
-echo "All arguments passed to script: $@"
-echo "Script's arguments separated into different variables: $1 $2..."
+echo "上一次程序返回值: $?"
+echo "脚本 PID: $$"
+
+# 脚本参数
+echo "脚本参数的数量: $#"
+echo "脚本的所有参数: $@"
+echo "脚本的各个参数: $1 $2..."
+echo "脚本第二个参数之后的参数：${@:2}"
+echo "最后一个参数：${!#}"
 
 # 变量就学完了
 
