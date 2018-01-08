@@ -19,6 +19,7 @@ func main() {
     fmt.Printf("hello, world\n")
 }
 ```
+
 ```bash
 go build
 ./test_golang

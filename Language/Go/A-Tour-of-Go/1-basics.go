@@ -1,11 +1,10 @@
-package main //所有的程序从main开始
+package main //可执行的程序从main开始
 
-//best style of import
 import (
 	"fmt"
 
-	"math/cmplx"
 	"math"
+	"math/cmplx"
 )
 
 //也可以这样
@@ -17,7 +16,7 @@ func add(x int, y int) int {
 	return x + y
 }
 
-//如果变量类型连续一直，只需要在最后一个后面加上
+//如果变量类型连续一致，只需要在最后一个后面加上类型
 func add2(x, y int) int {
 	return x + y
 }
@@ -43,12 +42,12 @@ func main() {
 	var i int
 	fmt.Println(i, c, python, java)
 }
- */
+*/
 //var声明且初始化
 var i, j int = 2, 3
 var c, python = 0, "False"
 
-//在函数内部，可以使用`:=`来声明并初始化变量
+//在函数内部，可以使用`:=`来声明并初始化变量（函数外部不能使用这个）
 func var_equal() {
 	i := 1
 	fmt.Println(i)
@@ -71,6 +70,7 @@ func print_some_var() {
 //数字类型：0
 //布尔：false
 //字符串：""（空串）
+//struct：nil
 func zero_value() {
 	var i int
 	var f float64
@@ -106,16 +106,16 @@ const Pi = 3.14
 
 //https://tour.golang.org/basics/16
 const (
-	// Create a huge number by shifting a 1 bit left 100 places.
-	// In other words, the binary number that is 1 followed by 100 zeroes.
+	// 创建一个超级大数：左移 100 位，等于"1后面跟着100个0"的二进制数
 	Big = 1 << 100
-	// Shift it right again 99 places, so we end up with 1<<1, or 2.
+	// 即 1<<1 == 二进制数字“10” == 2
 	Small = Big >> 99
 )
 
 func needInt(x int) int {
 	return x*10 + 1
 }
+
 func needFloat(x float64) float64 {
 	return x * 0.1
 }
@@ -125,5 +125,4 @@ func main() {
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 	fmt.Println(math.Pi) //只有大写开头的变量才会被导出
-
 }

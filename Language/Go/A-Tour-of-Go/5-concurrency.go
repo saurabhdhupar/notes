@@ -7,21 +7,16 @@ import (
 
 // Goroutines
 // goroutine 是一个通过 Go runtime 管理的轻量级的并发线程
-//运行在相同的address space（地址空间），所以必须使用synchronized（同步）来访问共享内存
-//`sync`包可以做到这一点，不过一般有别的方法做这个事情
-//`go f(x, y, z)`
+// 运行在相同的address space（地址空间），所以必须使用synchronized（同步）来访问共享内存
+// `sync`包可以做到这一点，不过一般有别的方法做这个事情
+// `go f(x, y, z)`
 
-//Channels
-//使用操作符`<-`发送并接受数据
-/*
-ch <- v    // Send v to channel ch.
-v := <-ch  // Receive from ch, and assign value to v.
- */
-//和map和slice一样，channel必须在使用之前先创建：
-/*
-ch := make(chan int)
- */
-//默认发送接受阻塞，知道对方准备好了，这允许goroutine同步而不需要显示的锁或者条件变量
+// Channels
+// 使用操作符`<-`发送并接受数据
+// ch <- v    // 发送
+// v := <-ch  // 接受
+// 和map和slice一样，channel必须在使用之前先创建：ch := make(chan int)
+// 默认发送接受阻塞，知道对方准备好了，这允许goroutine同步而不需要显示的锁或者条件变量
 func sum(s []int, c chan int) {
 	sum := 0
 	for _, v := range s {
@@ -41,17 +36,14 @@ func sum_chan() {
 	fmt.Println(x, y, x+y)
 }
 
-//Buffered Channels
-//Channels can be buffered. 提供 buffer 长度作为第二个参数来初始化一个 buffered channel:
-/*
-ch := make(chan int, 100)
- */
-//Sends to a buffered channel block only when the buffer is full. Receives block when the buffer is empty
+// Buffered Channels
+// Channels can be buffered. 提供 buffer 长度作为第二个参数来初始化一个 buffered channel: ch := make(chan int, 100)
+// Sends to a buffered channel block only when the buffer is full. Receives block when the buffer is empty
 
-//Range and Close
-//如果没有数据，一个发送者sender可以关闭通道。只有sender可以发送关闭通道。往一个关闭的通道发送数据会造成panic
-//一个接受者可以检测是否已经关闭
-//channel不像通道，你通常不需要关闭它，除非你需要告诉接受者没有数据了，或者结束下面那个循环
+// Range and Close
+// 如果没有数据，一个发送者sender可以关闭通道。只有sender可以发送关闭通道。往一个关闭的通道发送数据会造成panic
+// 一个接受者可以检测是否已经关闭
+// channel不像通道，你通常不需要关闭它，除非你需要告诉接受者没有数据了，或者结束下面那个循环
 
 //通过下面的语法：
 /*
