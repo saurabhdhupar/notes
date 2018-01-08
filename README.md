@@ -16,11 +16,10 @@
 - 编程语言
 
   - [GO](./Language/GO)
-
   - [Ocaml](./Language/Ocaml)
-
   - [python](./Language/python)
 
 - 数据库
 
   - [sql 入门](./Database/w3schools_sql_tutorial.md)
+  - [PostgreSQL手册简读](./Database/PostgreSQL-10-Manuals/directory.md)
