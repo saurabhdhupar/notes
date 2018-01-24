@@ -4,6 +4,8 @@ Given an array of integers, return indices of the two numbers such that they add
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
+给定一个数组和一个数，从数组里面找出两个数，他们的和是这个数，返回这两个数字的index（答案唯一，同一个数只能使用一次）
+
 Example.
 ```
 Given nums = [2, 7, 11, 15], target = 9,
@@ -13,9 +15,13 @@ return [0, 1].
 ```
 
 ```go
-package main
+package test
 
-import "fmt"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func func1(nums []int, target int) []int {
 	for i := 0; i < len(nums); i++ {
@@ -30,13 +36,13 @@ func func1(nums []int, target int) []int {
 
 func func2(nums []int, target int) []int {
 	var mapInt = make(map[int]int, len(nums))
-	for i := 0; i < len(nums); i++ {
-		mapInt[nums[i]] = i
+	for k, v := range nums {
+		mapInt[v] = k
 	}
 
-	for i := 0; i < len(nums); i++ {
-		if j, ok := mapInt[target-nums[i]]; ok && i != j {
-			return []int{i, j}
+	for k, v := range nums {
+		if j, ok := mapInt[target-v]; ok && k != j {
+			return []int{k, j}
 		}
 	}
 
@@ -45,20 +51,19 @@ func func2(nums []int, target int) []int {
 
 func func3(nums []int, target int) []int {
 	var mapInt = make(map[int]int, len(nums))
-	for i := 0; i < len(nums); i++ {
-		if j, ok := mapInt[target-nums[i]]; ok {
-			return []int{i, j}
+	for k, v := range nums {
+		if j, ok := mapInt[target-v]; ok {
+			return []int{k, j}
 		}
-		mapInt[nums[i]] = i
+		mapInt[v] = k
 	}
 
 	return []int{}
 }
 
-func main() {
-	fmt.Println(func1([]int{2, 7, 11, 15}, 9))
-	fmt.Println(func2([]int{2, 7, 11, 15}, 9))
-	fmt.Println(func3([]int{2, 7, 11, 15}, 9))
+func TestFunc(t *testing.T) {
+	assert.Equal(t, []int{0, 1}, func1([]int{2, 7, 11, 15}, 9))
+	assert.Equal(t, []int{0, 1}, func2([]int{2, 7, 11, 15}, 9))
+	assert.Equal(t, []int{1, 0}, func3([]int{2, 7, 11, 15}, 9))
 }
-
 ```

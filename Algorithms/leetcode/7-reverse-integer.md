@@ -17,6 +17,8 @@ For the purpose of this problem, assume that your function returns 0 when the re
 Note:
 The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
 
+将一个32位数字反转，所以可能有溢出
+
 - 数字获取后N位，对10*N取余即可（获取最后一位，对10取余）
 - 有符号整数范围   *- 2 ** (N-1) ~ 2 ** (N-1) - 1*
 - 无符号整数范围   *0 ~ 2 ** N - 1*

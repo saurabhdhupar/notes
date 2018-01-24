@@ -61,7 +61,9 @@
 ## Go
 
 - [ ] install golang from [this md](https://github.com/Chyroc/study-code/blob/master/Go/1-install.md)
+- [ ] brew install dep
 - [ ] brew install glide
+- [ ] brew install goreleaser/tap/goreleaser
 
 ## Ruby
 - [ ] install RVM from [its website](https://rvm.io/)
