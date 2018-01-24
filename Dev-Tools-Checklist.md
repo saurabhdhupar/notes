@@ -31,7 +31,7 @@
 
 - [ ] brew install autojump ([GitHub](https://github.com/wting/autojump))
 - [ ] brew install xz
-- [ ] brew install vim --override-system-vi
+- [ ] brew install vim --with-override-system-vi
 - [ ] brew cask install spectacle
 - [ ] brew cask install docker
 - [ ] brew install jq
