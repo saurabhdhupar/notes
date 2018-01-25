@@ -1,5 +1,7 @@
 # for循环中index指针与变量作用域的问题
 
+- time 2018-1-25
+
 ```go
 package main
 

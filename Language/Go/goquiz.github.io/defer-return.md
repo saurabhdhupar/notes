@@ -1,5 +1,7 @@
 # defer与return的问题（defer之一）
 
+- time 2018-1-25
+
 [go-internals/03.4.md at master · tiancaiamao/go-internals · GitHub](https://github.com/tiancaiamao/go-internals/blob/master/zh/03.4.md)阅读有感
 
 我们知道defer的时候会将后面的函数入栈，然后return的时候执行。
