@@ -64,6 +64,7 @@
 - [ ] brew install dep
 - [ ] brew install glide
 - [ ] brew install goreleaser/tap/goreleaser
+- [ ] go get -u github.com/davecheney/httpstat
 
 ## Ruby
 - [ ] install RVM from [its website](https://rvm.io/)
