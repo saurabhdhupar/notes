@@ -1,6 +1,6 @@
 # defer与panic的问题（defer之二）
 
-- time 2018-1-25
+- time 2018-01-25
 
 defer与panic问题
 ```go

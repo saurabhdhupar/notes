@@ -1,6 +1,6 @@
 # defer与return的问题（defer之一）
 
-- time 2018-1-25
+- time 2018-01-25
 
 [go-internals/03.4.md at master · tiancaiamao/go-internals · GitHub](https://github.com/tiancaiamao/go-internals/blob/master/zh/03.4.md)阅读有感
 

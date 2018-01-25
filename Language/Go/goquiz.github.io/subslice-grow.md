@@ -1,6 +1,6 @@
 # slice与底层数组引用
 
-- time 2018-1-25
+- time 2018-01-25
 
 ```go
 package main
