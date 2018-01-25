@@ -1,4 +1,4 @@
-# sub slice引用
+# slice与底层数组引用
 
 ```go
 package main

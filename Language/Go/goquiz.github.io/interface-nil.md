@@ -1,4 +1,4 @@
-# interface-nil
+# interface与nil的比较
 
 ```go
 package main

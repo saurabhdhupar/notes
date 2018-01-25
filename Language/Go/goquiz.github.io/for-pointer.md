@@ -1,4 +1,4 @@
-# for-pointer
+# for循环中index指针与变量作用域的问题
 
 ```go
 package main
