@@ -1,6 +1,7 @@
 # interface与nil的比较
 
 - time 2018-01-25
+- from https://github.com/goquiz/goquiz.github.io
 
 ```go
 package main

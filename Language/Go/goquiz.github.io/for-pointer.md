@@ -1,6 +1,7 @@
 # for循环中index指针与变量作用域的问题
 
 - time 2018-01-25
+- from https://github.com/goquiz/goquiz.github.io
 
 ```go
 package main
