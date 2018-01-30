@@ -16,6 +16,7 @@
 - 编程语言
 
   - [GO](./Language/GO)
+  - [Scheme](./Language/Scheme)
   - [Ocaml](./Language/Ocaml)
   - [python](./Language/python)
 
