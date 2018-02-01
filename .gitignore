@@ -17,3 +17,5 @@ sync_changes.log
 sync_hook.script
 **/.Archive
 test.sh
+e.yaml
+.bashful
