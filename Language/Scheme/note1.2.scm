@@ -1,13 +1,4 @@
-; test
-(define (check-expect actual expect)
-  (if (= expect actual)
-      (display "\t\tsuccess!\n")
-      ((display "\t\tfailed!\n") (error "\t\tfailed!\n"))))
-; common
-(define (cube x)
-    (* x x x))
-(define (inc x)
-    (+ x 1))
+(load "lib/lib.scm")
 
 ; 阶乘
 ; 1. 递归计算过程
@@ -15,7 +6,7 @@
     (if (= n 1)
         1
         (* n (fac2 (- n 1)))))
-(fac2 10)
+(assert-equal (fac2 10) 3628800)
 
 ; 2. 迭代计算过程
 (define (fac n)
@@ -24,8 +15,8 @@
             product
             (fac-iter (* product counter) (+ counter 1) max-count)))
     (fac-iter 1 1 n))
-(fac 10)
-(= (fac 10) (fac2 10))
+(assert-equal (fac 10) 3628800)
+(assert-equal (fac 10) (fac2 10))
 
 ; 求和记法，求从a到b的按照一个增长方法next的，对每个元素计算term，的和
 (define (sum term a next b)
@@ -40,7 +31,7 @@
         (* x x x))
     (sum cube a inc b))
 
-(check-expect (sum-cubes 1 10) 3025)
+(assert-equal (sum-cubes 1 10) 3025)
 
 ; 用这个计算求：a到b的和
 (define (sum-int a b)
@@ -49,7 +40,7 @@
     (sum identity a inc b))
 
 
-(check-expect (sum-int 1 10) 55)
+(assert-equal (sum-int 1 10) 55)
 
 ; 用下面的公式求函数f在范围a到b之间的定积分的近似值
 ; ![image](https://user-images.githubusercontent.com/15604894/35604904-e7e859c0-067f-11e8-9296-0353ea23a446.png)
@@ -82,9 +73,9 @@
        (sum g 0 inc n)))
 
 ; 使用
-(check-expect (integral-xps cube 0 1 8) 0.25)
-(check-expect (integral-xps cube 0 1 10) 0.25)
-(check-expect (integral-xps cube 0 1 100) 0.25)
+(assert-equal (integral-xps cube 0 1 8) 0.25)
+(assert-equal (integral-xps cube 0 1 10) 0.25)
+(assert-equal (integral-xps cube 0 1 100) 0.25)
 
 ; 1.30 将sum由线性递归改写为线性迭代
 ; (define (sum term a next b)
@@ -115,7 +106,7 @@
         (* i (f (+ a (* k h)))))
     (* (/ h 3.0)
        (sum-2 g 0 inc n)))
-(check-expect 0.25 (integral-xps-2 cube 0 1 8))
+(assert-equal 0.25 (integral-xps-2 cube 0 1 8))
 
 ; 1.31
 ; ![image](https://user-images.githubusercontent.com/15604894/35612427-b602fa4a-06a3-11e8-901c-5ff578da141c.png)
@@ -155,7 +146,7 @@
           (product-2 term 1 next n))
        1.0))
 
-(check-expect (fac-1 1000) (fac-2 1000))
+(assert-equal (fac-1 1000) (fac-2 1000))
 (fac-2 1000) ; 3.142377365093878
 
 ; 1.32
@@ -182,7 +173,7 @@
 ; 1.34
 (define (f g)
     (g 2))
-(check-expect (f (lambda (x) (* x x))) 4)
+(assert-equal (f (lambda (x) (* x x))) 4)
 ; (f f)
 
 ; 求函数零 + error
@@ -205,7 +196,61 @@
                (search f a b))
               (else
                 (error "Values are not of apposite sign" a b)))))
-(check-expect (half-interval-method sin 2.0 4.0) 3.14111328125)
+(assert-equal (half-interval-method sin 2.0 4.0) 3.14111328125)
 ; (half-interval-method sin 1.0 2.0)
 
 ; 函数不动点
+
+; 1.11
+; 函数f: 如果n<3，返回n; 如果n>=3，返回 f(n-1) + 2f(n-2) + 3f(n-3)
+; 递归计算
+(define (f1 n)
+    (if (< n 3)
+        n
+        (+
+            (f1 (- n 1))
+            (* 2 (f1 (- n 2)) )
+            (* 3 (f1 (- n 3))))))
+; 迭代计算
+(define (f2 n)
+    (define (f2-iter a b c max-count)
+        (cond ( (= 0 max-count) a )
+              ( (= 1 max-count) b )
+              ( (= 2 max-count) c )
+              (else (f2-iter
+                        b
+                        c
+                        (+ (* 3 a) (* 2 b) c)
+                        (- max-count 1)))))
+    (f2-iter 0 1 2 n))
+
+; test
+(= (f1 5) (f2 5))
+(= (f1 10) (f2 10))
+
+; 1.12 用递归计算求帕卡斯三角
+(define (p n)
+    ())
+
+; 1.13
+
+; 1.14
+
+; 1.15 sinx
+(define (sine angle)
+    (if (not (> (abs angle) 0.1))
+        angle
+        (p (sine (/ angle 3.0)))))
+(define (abs x)
+    (if (< x 0) (- x) x))
+(define (p x)
+    ; (display 1)(newline)
+    (- (* 3 x ) (* 4 (cube x))))
+(define (cube x)
+    (* x x x))
+
+; (a)
+(sine 12.15)
+; (b)
+; (sine a)
+; 空间，步数

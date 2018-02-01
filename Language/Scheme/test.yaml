@@ -1,0 +1,28 @@
+tasks:
+    - name: Test ALL
+      parallel-tasks:
+        - cmd: scheme < note1.1.scm
+        - cmd: scheme < note1.2.scm
+        - cmd: scheme < note2.1.scm
+      tags: all
+    - name: Test Note
+      parallel-tasks:
+        - cmd: scheme < note2.1.scm
+      tags: note
+    - name: Test Lib
+      cmd: scheme < lib/lib_test.scm
+      tags: lib
+    - name: Test Lib Flat
+      parallel-tasks:
+        - cmd: scheme < lib/flat.scm
+        - cmd: scheme < lib/flat_test.scm
+      tags: flat
+    - name: Test Lib Math
+      parallel-tasks:
+        - cmd: scheme < lib/math.scm
+        - cmd: scheme < lib/math_test.scm
+      tags: math
+    - name: Test Lib Assert
+      parallel-tasks:
+        - cmd: scheme < lib/assert.scm
+      tags: assert
