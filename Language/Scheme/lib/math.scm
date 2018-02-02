@@ -98,5 +98,47 @@
     (= (* (numer x) (denom y))
        (* (numer y) (denom x))))
 
+; 区间
+(define (make-interval x y)
+    (cons x y))
+; 2.7
+; (define (lower-bound interval)
+; (min (car interval) (cbr interval)))
+; (define (upper-bound interval)
+; (max (car interval) (cbr interval)))
+(define (lower-bound interval)
+    (car interval))
+(define (upper-bound interval)
+    (cbr interval))
+; 区间相加，两端分别相加
+(define (add-interval x y)
+    (make-interval (+ (lower-bound x) (lower-bound y))
+                   (+ (upper-bound x) (upper-bound y))))
+; 2.8
+; 区间相减
+(define (sub-interval x y)
+    (make-interval (- (lower-bound x) (lower-bound y))
+                   (- (upper-bound x) (upper-bound y))))
+; 区间相乘，区间1与区间2的两端两两相乘，得到四个数，其中最小和最大分别是端点
+(define (mul-interval x y)
+    (let ((x1 (lower-bound x))
+          (x2 (upper-bound x))
+          (y1 (lower-bound y))
+          (y2 (upper-bound y)))
+        (let ((p1 (* x1 y1))
+              (p2 (* x1 y2))
+              (p3 (* x2 y1))
+              (p4 (* x2 y2)))
+            (make-interval (min p1 p2 p3 p4)
+                           (max p1 p2 p3 p4)))))
+; 区间相除，第一个区间与第二个区间的倒区间的乘积；倒区间：两个端点的倒数，然后置换的区间
+; 区间相除，第一个区间的两个端点两两与第二个区间的端点相除，得到四个数，其中最小和最大分别是端点
+(define (div-interval x y)
+    (mul-interval x
+                  (make-interval (/ 1.0 (upper-bound y))
+                                 (/ 1.0 (lower-bound y)))))
+; 区间宽度：上界-下界 的一半
+(define (width-interval interval)
+    (/ (- (upper-bound interval) (lower-bound interval)) 2.0))
 
 (define load_lib! #t)

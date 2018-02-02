@@ -18,4 +18,10 @@
       (display "\t\tsuccess!\n")
       ((display "\t\tfailed!\n") (error "\t\tfailed!\n"))))
 
+; assert-equal-func
+(define (assert-equal-func func actual expect)
+  (if (func expect actual)
+      (display "\t\tsuccess!\n")
+      (error "\t\texpect:" expect "actual:" actual "failed!\n")))
+
 (define load_assert! #t)

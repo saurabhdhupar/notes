@@ -1,8 +1,16 @@
 我的SICP学习笔记
 
-## test
+## 安装Scheme
+* mac
+  * `brew install mit-scheme`
+* unix
+  * `./install.sh`
+  * [MIT/GNU Scheme - GNU Project - Free Software Foundation](https://www.gnu.org/software/mit-scheme/)
+  * [Unix Installation - MIT/GNU Scheme 9.4](https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/Unix-Installation.html)
+
+## 测试代码
 ```
-bashful run test.yaml
+./test.sh
 ```
 ## 参考
 * [SICP 解题集 — SICP 解题集](http://sicp.readthedocs.io/en/latest/index.html)
@@ -10,3 +18,5 @@ bashful run test.yaml
 * [GitHub - numbbbbb/sicp: 收录我完成的练习题](https://github.com/numbbbbb/sicp)
 * [SICP · Issue #85 · Chyroc/notes · GitHub](https://github.com/Chyroc/notes/issues/85)
 * [逐步理解丘奇数(一) | Perifort Pro.](https://pfmiles.wordpress.com/2009/11/12/%E9%80%90%E6%AD%A5%E7%90%86%E8%A7%A3%E4%B8%98%E5%A5%87%E6%95%B0%E4%B8%80/)
+[Dropbox - sicp.pdf](https://www.dropbox.com/s/tnvd66sjzuwhdjn/sicp.pdf?dl=0)
+[Dropbox - SICP中文第二版.pdf](https://www.dropbox.com/s/kqj61iheqr9tv22/SICP%5B%E4%B8%AD%E6%96%87%E7%AC%AC%E4%BA%8C%E7%89%88%5D.pdf?dl=0)

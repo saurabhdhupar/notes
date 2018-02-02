@@ -6,4 +6,6 @@
 
 (load "lib/math.scm")
 
+(load "lib/list.scm")
+
 (load "lib/assert.scm")

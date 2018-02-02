@@ -53,3 +53,7 @@
 (assert-equal ((two inc) 0) 2)
 
 ; todo +
+
+; 2.9 证明两个区间的和（与差）的宽度就是被加（或减）的区间的宽度的函数
+(define interval-1 (make-interval 1 10))
+(define interval-2 (make-interval 2 5))

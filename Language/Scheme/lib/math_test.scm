@@ -1,7 +1,6 @@
 ; math test
 
 (load "lib/math.scm")
-(load "lib/math.scm")
 
 ; 测试有理数
 (define one-half (make-rat 1 2))

@@ -1,0 +1,17 @@
+language: c
+
+sudo: required
+
+compiler:
+ - gcc
+
+install:
+  - ./Language/Scheme/install.sh
+
+script: 
+  - cd ./Language/Scheme && ./test.sh
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
