@@ -40,6 +40,12 @@
         (list item)
         (cons item items)))
 
+; 往后面插入节点
+(define (list-end-insert items item)
+    (if (null? items)
+        (list item)
+        (cons (car items) (list-end-insert (cdr items) item))))
+
 ; reverse
 (define (reverse items)
     (if (null? items)
@@ -66,3 +72,29 @@
     (if (null? sequence)
         initial
         (op (car sequence) (accumulate op initial (cdr sequence)))))
+
+; 输入list，返回两个list，所有的数字都会在第一个list中
+(define (filter-number items)
+    (define (add-number? items n)
+          (if (number? n)
+              (list-end-insert items n)
+              items))
+    (define (add-not-number? items n)
+          (if (not (number? n))
+              (list-end-insert items n)
+              items))
+    (define (filter-number-iter a b items)
+          (if (null? items)
+              (list a b)
+                  (filter-number-iter (add-number? a (car items))
+                                      (add-not-number? b (car items))
+                                      (cdr items))))
+    (filter-number-iter (list) (list) items))
+
+; (define (filter-number-func func init items)
+;     (define num-and-nots (filter-number items))
+;     (define nums (car num-and-nots))
+;     (define nots (cdr num-and-nots))
+;     (define (func-iter parameters)
+;         ())
+;     (list (func-iter func init nums )))

@@ -26,6 +26,16 @@
 ; 绝对值
 (define (abs x) (if (< x 0) (- x) x))
 
+; 幂
+; 0次幂是1
+; 1次幂是它本身
+(define (** x n)
+    (define (**-iter x n result)
+        (cond ((= n 0) result)
+              ((= n 1) (* x result))
+              (else (**-iter x (- n 1) (* x result)))))
+    (**-iter x n 1))
+
 ; 平方根
 (define (sqrt x)
     (define (sqrt-iter2 guess x)

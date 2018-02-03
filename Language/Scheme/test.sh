@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ $1 != "" ]; then
+    mit-scheme < $1 1>/dev/null 2>&1
+    echo $?
+    exit $?
+fi
+
 run_exit=0
 
 for scheme_file in $(find ./* -type f -name '*.scm');

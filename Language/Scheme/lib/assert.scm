@@ -1,27 +1,29 @@
 ; 测试 assert 库
 
+(load "lib/core.scm")
+
 ; assert-equal
 (define (assert-equal actual expect)
-  (if (= expect actual)
-      (display "\t\tsuccess!\n")
-      (error "\t\texpect:" expect "actual:" actual "failed!\n")))
+  (if (==? actual expect)
+      (display "  success!  ")
+      (error "expect:" expect "actual:" actual "failed!")))
 
 ; assert-true
 (define (assert-true ok)
   (if ok
-      (display "\t\tsuccess!\n")
-      ((display "\t\tfailed!\n") (error "\t\tfailed!\n"))))
+      (display "  success!  ")
+      ((error "  failed!  "))))
 
 ; assert-false
 (define (assert-false no-ok)
   (if (not no-ok)
-      (display "\t\tsuccess!\n")
-      ((display "\t\tfailed!\n") (error "\t\tfailed!\n"))))
+      (display "  success!  ")
+      ((error "  failed!  "))))
 
 ; assert-equal-func
 (define (assert-equal-func func actual expect)
   (if (func expect actual)
-      (display "\t\tsuccess!\n")
-      (error "\t\texpect:" expect "actual:" actual "failed!\n")))
+      (display "  success!  ")
+      (error "  expect:" expect "actual:" actual "failed!  ")))
 
 (define load_assert! #t)

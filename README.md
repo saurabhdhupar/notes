@@ -1,5 +1,7 @@
 # 学习笔记
 
+[![Build Status](https://travis-ci.org/Chyroc/notes.svg?branch=master)](https://travis-ci.org/Chyroc/notes)
+
 - [开发工具列表](./Dev-Tools-Checklist.md)
 - [有用网站集](./awesome-website.md)
 

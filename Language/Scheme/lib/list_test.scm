@@ -37,3 +37,7 @@
 (assert-equal (accumulate + 0 (list 1 2 3 4 5)) 15)
 (assert-equal (accumulate * 1 (list 1 2 3 4 5)) 120)
 (assert-equal-func list-eq? (accumulate cons () (list 1 2 3 4 5)) (list 1 2 3 4 5))
+
+(assert-equal (filter-number (list)) '(() ()))
+(assert-equal (filter-number (list 1 'a 2 'b)) '((1 2) (a b)))
+(assert-equal (filter-number (list 1 'a 2 'b 3 '(a b))) '((1 2 3) (a b (a b))))
