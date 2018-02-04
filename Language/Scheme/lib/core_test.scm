@@ -28,3 +28,6 @@
 (assert-equal (caddr cr) 3)
 (assert-equal (cadddr cr) 4)
 (assert-equal (cdr cr) (list 2 3 4 5 6 7))
+
+(assert-equal (car (cons 1 2)) 1)
+(assert-equal (cdr (cons 1 2)) 2)
