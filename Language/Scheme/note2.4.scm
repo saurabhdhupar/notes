@@ -35,19 +35,6 @@
 ;     (make-from-mag-ang (/ (magnitude z1) (magnitude z2))
 ;                        (- (angle z1) (angle z2))))
 
-; attach-tag type-tag contents
-; 带标识的数据
-(define (attach-tag type-tag contents)
-    (cons type-tag contents))
-(define (type-tag datum)
-    (if (pair? datum)
-        (car datum)
-        (error "bad tagged datum -- TYPE_TAG" datum)))
-(define (contents datum)
-    (if (pair? datum)
-        (cdr datum)
-        (error "bad tagged datum -- CONTENTS" datum)))
-
 (define (rectangular? z)
     (eq? (type-tag z) 'rectangular))
 (define (polar? z)
@@ -98,17 +85,14 @@
     (put 'make-from-mag-ang '(polar) (lambda (x y) (tag (make-from-mag-ang x y))))
     'done)
 
-(define (apply-generic op . args)
-    (let ((type-tags (map type-tag args)))
-        (let ((proc (get op type-tags)))
-            ((if proc
-                 (apply proc (map contents args))
-                 (error "no method for these types -- APPLY-GENERIC" (list op type-tags)))))))
-
 (define (make-from-real-imag x y)
     (get 'make-from-real-imag 'rectangular) x y)
 (define (make-from-mag-ang r a)
     (get 'make-from-mag-ang 'polar) r a)
 
 
-(define a (make-from-real-imag 1 2))
+; 2.73
+
+; 2.74
+
+; 消息传递

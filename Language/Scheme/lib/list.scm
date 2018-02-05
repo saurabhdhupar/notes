@@ -53,12 +53,12 @@
         (append (reverse (cdr items))
                 (list (car items)))))
 
-; map
-(define (map proc items)
-    (if (null? items)
-        items
-        (cons (proc (car items))
-              (map proc (cdr items)))))
+; ; map
+; (define (map proc items)
+;     (if (null? items)
+;         items
+;         (cons (proc (car items))
+;               (map proc (cdr items)))))
 
 ; filter
 (define (filter proc items)
