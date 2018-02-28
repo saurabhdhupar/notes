@@ -36,6 +36,7 @@
 - [ ] brew cask install docker
 - [ ] brew install jq
 - [ ] brew install mycli
+- [ ] brew install pgcli
 - [ ] brew install awscli
 - [ ] brew cask install slack
 - [ ] brew cask install virtualbox
@@ -66,6 +67,7 @@
 - [ ] brew install goreleaser/tap/goreleaser
 - [ ] go get -u github.com/davecheney/httpstat
 - [ ] go get -u github.com/google/gops
+- [ ] go get -u github.com/codesenberg/bombardier
 
 ## Ruby
 - [ ] install RVM from [its website](https://rvm.io/)
