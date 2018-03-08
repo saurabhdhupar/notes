@@ -65,10 +65,10 @@ leetcode
 | 217 | [contains-duplicate](./217-contains-duplicate.md) | ️️:zap: |
 | 599 | [minimum-index-sum-of-two-lists](./599-minimum-index-sum-of-two-lists.md) | ️️:zap: |
 | 665 | [non-decreasing-array](./665-non-decreasing-array.md) | ️️:zap: |
-| 682 | [baseball-game](./baseball-game.md) | ️️:zap: |
-| 696 | [count-binary-substrings](./count-binary-substrings.md) | ️️:zap: |
-| 728 | [self-dividing-numbers](./self-dividing-numbers.md) | ️️:zap: |
-| 771 | [jewels-and-stones](./jewels-and-stones.md) | ️️:zap: |
+| 682 | [baseball-game](./682-baseball-game.md) | ️️:zap: |
+| 696 | [count-binary-substrings](./696-count-binary-substrings.md) | ️️:zap: |
+| 728 | [self-dividing-numbers](./728-self-dividing-numbers.md) | ️️:zap: |
+| 771 | [jewels-and-stones](./771-jewels-and-stones.md) | ️️:zap: |
 
 
 sql
