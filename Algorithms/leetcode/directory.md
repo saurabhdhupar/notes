@@ -69,7 +69,13 @@ leetcode
 | 696 | [count-binary-substrings](./696-count-binary-substrings.md) | ️️:zap: |
 | 728 | [self-dividing-numbers](./728-self-dividing-numbers.md) | ️️:zap: |
 | 771 | [jewels-and-stones](./771-jewels-and-stones.md) | ️️:zap: |
-
+| 83  | [remove-duplicates-from-sorted-list](./83-remove-duplicates-from-sorted-list.md) | :zap: |
+| 155 | [min-stack](./155-min-stack.md) | :zap: |
+| 168 | [excel-sheet-column-title](./168-excel-sheet-column-title.md) | :zap: |
+| 171 | [excel-sheet-column-number](./171-excel-sheet-column-number.md) | :zap: |
+| 441 | [arranging-coins](./441-arranging-coins.md) | :zap: |
+| 476 | [number-complement](./476-number-complement.md) | :zap: |
+| 717 | [1-bit-and-2-bit-characters](./717-1-bit-and-2-bit-characters.md) | :zap: |
 
 sql
 
