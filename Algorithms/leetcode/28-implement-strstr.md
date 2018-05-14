@@ -5,6 +5,10 @@ Implement strStr().
 
 Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
+* 给定一个字符串，求另一个字符串在这个字符串中出现的位置，没有出现返回-1
+* 用i对第一个字符串遍历，取s[i:i+len(s2)] == s2比较
+* 注意i遍历的范围
+
 ```python
 class Solution(object):
     def strStr(self, haystack, needle):

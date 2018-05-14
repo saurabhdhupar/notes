@@ -11,6 +11,7 @@ Given input array nums = `[3,2,2,3]`, val = `3`
 
 Your function should return length = 2, with the first two elements of nums being 2.
 
+- 给一个数组和一个数，去掉这个数组里面的这个数，然后返回新数据的长度（在原数组上操作）
 - 和26一样
 - 使用i表示非目标元素的数据游标，使用j对数组遍历
 - 遍历数组，将不等于目标元素的数据移动到数组前面，位置由i确定

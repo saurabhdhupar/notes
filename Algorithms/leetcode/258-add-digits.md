@@ -12,7 +12,7 @@ Could you do it without any loop/recursion in O(1) runtime?
 **Credits:**
 Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
 
-- 将数字各位数字相加，知道是一位数为止
+- 将数字各位数字相加，直到是一位数为止
 - 经过观察，可以得到公式
 
 ```go

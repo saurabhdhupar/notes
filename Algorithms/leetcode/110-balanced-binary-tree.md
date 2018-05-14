@@ -1,4 +1,4 @@
-> https://leetcode.com/problems/balanced-binary-tree/description/
+··> https://leetcode.com/problems/balanced-binary-tree/description/
 
 
 Given a binary tree, determine if it is height-balanced.
@@ -25,30 +25,33 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func cha(p *TreeNode) int {
+// 高度差 / 是平衡树
+func check(p *TreeNode) (int, bool) {
 	if p == nil {
-		return 0
+		return 0, true
 	}
 
-	leftHigh := cha(p.Left)
-	if leftHigh == -1 {
-		return -1
+	leftHigh, leftOK := check(p.Left)
+	if !leftOK {
+		return 0, false
 	}
 
-	rightHigh := cha(p.Right)
-	if rightHigh == -1 {
-		return -1
+	rightHigh, rightOK := check(p.Right)
+	if !rightOK {
+		return 0, false
 	}
 
 	cha := int(math.Abs(float64(leftHigh - rightHigh)))
 	if cha > 1 {
-		return -1
+		return 0, false
 	}
 
-	return 1 + int(math.Max(float64(leftHigh), float64(rightHigh)))
+	return 1 + int(math.Max(float64(leftHigh), float64(rightHigh))), true
 }
 
 func isBalanced(root *TreeNode) bool {
-	return cha(root) != -1
+	_, ok := check(root)
+	return ok
 }
+
 ```

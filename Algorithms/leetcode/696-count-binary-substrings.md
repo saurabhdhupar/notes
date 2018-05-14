@@ -28,9 +28,11 @@ Note:
 * s.length will be between 1 and 50,000.
 * s will only consist of "0" or "1" characters.
 
-给一个字符串，里面只有0和1，求成对出现的个数（相同数字需要相邻）
-
-例如："00110011"包含： "0011", "01", "1100", "10", "0011", and "01"，6个
+* 给一个字符串，里面只有0和1，求成对出现的个数（相同数字需要相邻）(696)
+  * 例如："00110011"包含： "0011", "01", "1100", "10", "0011", and "01"，6个
+  * 首先统计相邻的数字相同的个数，比如"00110011" -> "2，2，2，2" group
+  * 循环这个（`k<n-1`）
+    * 如果group[i] > group[i+1]，个数加group[i+1]，否则加group[i]
 
 注意：
 
@@ -38,10 +40,9 @@ Note:
 * 字符串只包含0和1
 
 ```go
-package ttt
+package main
 
 import (
-	"testing"
 	"fmt"
 )
 
@@ -75,27 +76,26 @@ func countBinarySubstrings(s string) int {
 	return sum
 }
 
-func TestNumJewelsInStones(t *testing.T) {
+func main() {
 	{
 		n := countBinarySubstrings("00110011")
 		if n != 6 {
-			t.Fatal("get", n)
+			fmt.Sprintf("get %d", n)
 		}
 	}
 
 	{
 		n := countBinarySubstrings("00110")
 		if n != 3 {
-			t.Fatal("get", n)
+			fmt.Sprintf("get %d", n)
 		}
 	}
 
 	{
 		n := countBinarySubstrings("10101")
 		if n != 4 {
-			t.Fatal("get", n)
+			fmt.Sprintf("get %d", n)
 		}
 	}
 }
-
 ```

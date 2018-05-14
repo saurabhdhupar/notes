@@ -31,9 +31,10 @@ Explanation:
 The binary representation of 10 is: 1010.
 ```
 
-- 转成二进制之后，所有相邻的数字均不相同
-- 用辗转相除法转二进制
-- 记录上一次的数字，不相同的时候退出
+* 判断一个整数转成二进制之后，所有相邻的数字是否均不相同（693）
+  * 用辗转相除法转二进制
+  * 记录上一次的数字，不相同的时候退出
+  * 所以不需要两个循环了
 
 ```go
 func hasAlternatingBits(n int) bool {

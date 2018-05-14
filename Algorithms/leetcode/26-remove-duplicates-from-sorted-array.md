@@ -10,8 +10,7 @@ Given input array nums = `[1,1,2]`,
 
 Your function should return length = `2`, with the first two elements of nums being `1` and `2` respectively. It doesn't matter what you leave beyond the new length.
 
-- 去除已排序数组的重复元素，返回不重复的个数N，原数组前N项需要就是那几个非重复的元素
-- 不能使用额外的数组，必须操作原来的数组
+- 去除已排序数组的重复元素，返回不重复的个数N，原数组经过操作后，前N项需要就是那几个非重复的元素（不能使用额外的数组，必须操作原来的数组）
 - 考虑下标i,j，j来扫描数组，i作为非重复数组的最后一个元素的游标
 - 为了满足前i个都是非重复的，需要把后面的非重复元素赋值给前面的重复的元素
 

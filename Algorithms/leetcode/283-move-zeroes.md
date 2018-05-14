@@ -11,9 +11,7 @@ Note:
 Credits:
 Special thanks to [@jianchao.li.fighter](https://leetcode.com/discuss/user/jianchao.li.fighter) for adding this problem and creating all test cases.
 
-- 将数组里面的0移到数组末尾
-- 就地操作，不拷贝数据
-- 最小化操作次数
+* 将数组中的0移到末尾，在原数组上操作，最小化操作次数
 - 解决
   - 遍历数组
   - 如果不为0，跳过

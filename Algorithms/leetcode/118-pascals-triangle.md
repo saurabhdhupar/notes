@@ -22,13 +22,6 @@ Return
 ```go
 package main
 
-// Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func generate(numRows int) [][]int {
 	var d [][]int
 	for i := 0; i < numRows; i++ {

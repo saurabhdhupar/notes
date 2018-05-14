@@ -4,6 +4,8 @@ Given a binary tree, return the bottom-up level order traversal of its nodes' va
 
 For example:
 Given binary tree `[3,9,20,null,null,15,7]`,
+
+将二叉树表示为统一级别的节点的值的数组（二位数组从下网上，一维数组从左往右）
 ```
     3
    / \

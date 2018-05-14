@@ -12,7 +12,7 @@ You may assume the string contains only lowercase alphabets.
 **Follow up:**
 What if the inputs contain unicode characters? How would you adapt your solution to such case?
 
-- 判断两个字符串是不是异构是，即构成的字符串正好一样
+- 判断两个字符串是不是异构，即构成的字符正好一样
 - 使用哈希表
 - 注意可能一个字符会出现多次，所以map应该使用数字，而不是bool
 

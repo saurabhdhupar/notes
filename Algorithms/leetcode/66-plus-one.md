@@ -6,8 +6,11 @@ You may assume the integer do not contain any leading zero, except the number 0 
 
 The digits are stored such that the most significant digit is at the head of the list.
 
-- 用数组表示整数，除了0本身，不会有前置0
-- 把这个数组表示的整数加1返回，仍然用数组形式表示
+
+* 用数组表示整数，除了0本身，不会有前置0；数组的第一个元素是数字的最高位；把这个数组表示的整数加1返回，仍然用数组形式表示（66）
+  * 因为第一个元素是最高位，所以先依次乘以10，变为10进制数字
+  * 然后这个数字+1
+  * 然后再把这个数字的各个位置的元素拆出来
 
 ```python
 class Solution(object):

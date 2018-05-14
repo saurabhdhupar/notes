@@ -23,14 +23,14 @@ S and J will consist of letters and have length at most 50.
 The characters in J are distinct.
 ```
 
-统计字符串j里面的字符在s里面出现的个数。
-
-* j里面的字符是distinct的
-* j和s中只有字母，而且大小写敏感。
-* s和j的长度最大是50
-
-思路：
-* 查找特定字符，考虑map
+* 统计字符串j里面的字符在s里面出现的个数。（771）
+  * j里面的字符是distinct的
+  * j和s中只有字母，而且大小写敏感。
+  * s和j的长度最大是50
+  * 思路
+    * 查找特定字符，考虑map
+    * 将字符串j转成map
+    * 循环s，统计是否出现
 
 ```go
 package ttt

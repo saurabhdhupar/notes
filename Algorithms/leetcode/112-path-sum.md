@@ -16,7 +16,7 @@ Given the below binary tree and `sum = 22`,
 
 return true, as there exist a root-to-leaf path `5->4->11->2` which sum is 22.
 
-- 求从根节点到叶子节点，存在和为sum的路径
+- 求二叉树从根节点到叶子节点，存在和为sum的路径
 - 递归，将 root.Val - sum作为新的sum传递给子树
 - 因为要求是到叶子节点而不是任意路径，所以需要判断当前节点是叶子节点的时候（左右子树为空），才可以判断当前sum是否为当前节点的值
 - 中序遍历，先中，然后左右子树
