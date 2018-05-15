@@ -1,0 +1,6 @@
+[submodule "Algorithms/leetcode/algorithms-go"]
+	path = Algorithms/leetcode/algorithms-go
+	url = https://github.com/Chyroc/algorithms-go
+[submodule "Algorithms/algorithms-go"]
+	path = Algorithms/algorithms-go
+	url = https://github.com/Chyroc/algorithms-go
