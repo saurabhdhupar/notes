@@ -1,0 +1,11 @@
+[package]
+name = "code"
+version = "0.1.0"
+authors = ["Chyroc <chen_yunpeng@foxmail.com>"]
+
+[dependencies]
+rand = "0.5"
+
+[[bin]]
+name = "ch02-00-guessing-game-tutorial"
+path = "src/ch02-00-guessing-game-tutorial/main.rc"

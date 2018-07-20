@@ -18,3 +18,5 @@ sync_hook.script
 **/.Archive
 .bashful
 test.scm
+Language/Rust/code/target/
+Language/Rust/code/cmake-build-debug/
