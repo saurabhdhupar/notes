@@ -7,7 +7,6 @@ use std::cmp::Ordering;
 fn main() {
     println!("请输入:");
 
-
     let number = rand::thread_rng().gen_range(1, 101);
 
     loop {
@@ -17,7 +16,6 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
-
 
         match guess.cmp(&number) {
             Ordering::Less => println!("too small"),

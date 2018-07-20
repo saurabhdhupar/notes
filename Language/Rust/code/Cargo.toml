@@ -8,4 +8,8 @@ rand = "0.5"
 
 [[bin]]
 name = "ch02-00-guessing-game-tutorial"
-path = "src/ch02-00-guessing-game-tutorial/main.rc"
+path = "src/ch02-00-guessing-game-tutorial/main.rs"
+
+[[bin]]
+name = "common-programming-concepts"
+path = "src/common-programming-concepts/main.rs"
