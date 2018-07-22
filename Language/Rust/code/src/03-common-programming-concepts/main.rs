@@ -39,6 +39,7 @@ fn main() {
     }
 
     // data-types 数据类型
+    // 储存在栈上的并且当离开作用域时被移出栈
     {
         println!("\nscalar 标量");
         {

@@ -7,9 +7,13 @@ authors = ["Chyroc <chen_yunpeng@foxmail.com>"]
 rand = "0.5"
 
 [[bin]]
-name = "ch02-00-guessing-game-tutorial"
-path = "src/ch02-00-guessing-game-tutorial/main.rs"
+name = "02-guessing-game-tutorial"
+path = "src/02-guessing-game-tutorial/main.rs"
 
 [[bin]]
-name = "common-programming-concepts"
-path = "src/common-programming-concepts/main.rs"
+name = "03-common-programming-concepts"
+path = "src/03-common-programming-concepts/main.rs"
+
+[[bin]]
+name = "04-understanding-ownership"
+path = "src/04-understanding-ownership/main.rs"

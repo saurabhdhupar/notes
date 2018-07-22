@@ -18,9 +18,10 @@
 - 编程语言
 
   - [GO](./Language/GO)
-  - [Scheme](./Language/Scheme)
+  - [Python](./Language/Python)
+  - [Rust](./Language/Rust)
   - [Ocaml](./Language/Ocaml)
-  - [python](./Language/python)
+  - [Scheme](./Language/Scheme)
 
 - 数据库
 
