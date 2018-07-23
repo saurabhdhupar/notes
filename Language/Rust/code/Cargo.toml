@@ -17,3 +17,7 @@ path = "src/03-common-programming-concepts/main.rs"
 [[bin]]
 name = "04-understanding-ownership"
 path = "src/04-understanding-ownership/main.rs"
+
+[[bin]]
+name = "05-structs"
+path = "src/05-structs/main.rs"
