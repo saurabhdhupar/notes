@@ -21,3 +21,7 @@ path = "src/04-understanding-ownership/main.rs"
 [[bin]]
 name = "05-structs"
 path = "src/05-structs/main.rs"
+
+[[bin]]
+name = "06-enums"
+path = "src/06-enums/main.rs"
